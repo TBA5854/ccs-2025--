@@ -1,6 +1,4 @@
 import React from 'react'
-import { FaRegStar } from 'react-icons/fa'
-import { IoMdGitNetwork } from 'react-icons/io'
 import { projects, Languages } from '@/data/projects'
 import Link from 'next/link'
 
@@ -20,60 +18,64 @@ const ProjectPage = () => {
     }
   }
   return (
-    <div className="min-h-screen w-full bg-[#0A0A0A]">
-      <div className="flex flex-col gap-8 md:gap-0 md:flex-row px-4 lg:px-10 mt-6 md:mt-12">
-        <div className="ml-2 lg:w-1/4 text-white lg:sticky lg:top-0 md:h-screen">
+    <div className="w-full h-fit bg-[#0A0A0A]">
+      <div className="w-full h-fit md:w-4/5 mx-auto flex flex-col lg:flex-row gap-8 md:gap-0 px-4 lg:px-10 mt-6 lg:mt-12">
+
+        {/* LEFT PANEL */}
+        <div className="ml-2 lg:w-[40%] text-white lg:sticky lg:top-0 lg:h-screen">
           <h1 className="text-white font-sans-code text-2xl lg:text-[36px] font-semibold leading-[30px] mb-2 lg:mb-4">
             Projects
           </h1>
-          <hr className="w-[306.08px] h-[3px] bg-[#30363D] border-none mb-2 lg:mb-4" />
-          <p className="text-[14px] lg:text-[16px] leading-[19px] text-[#9198A1] font-normal font-sans-code mb-4 lg:mb-6">
-            {/* TODO@jrs : Replace this content pleasssseee ::::D */}
-            Our members work together to make <br className="hidden lg:block" />{' '}
-            projects both for events and for the sake{' '}
-            <br className="hidden lg:block" /> of sharpening their skills. Here
-            we have <br className="hidden lg:block" /> listed our finest works!
-          </p>
 
-          <div className="mt-2 lg:mt-2 w-[90%] lg:w-[85%] max-w-sm lg:max-w-4xl h-3 lg:h-2.5 bg-gray-800 flex rounded-lg overflow-hidden gap-x-1">
-            <div className="flex-[5] bg-[#F5502A] rounded-l-[6px]" />
-            <div className="flex-[4] bg-[#6541B2]" />
-            <div className="flex-[3] bg-[#FFB249]" />
-            <div className="flex-[1] bg-[#54A3FF] rounded-r-[6px]" />
-          </div>
-          <div className="flex flex-wrap mt-2">
-            <div className="flex items-center w-1/2 lg:w-auto lg:mr-24">
-              <span className="w-3 h-3 mr-2 rounded-full bg-[#F5502A]" />
-              <span className="text-sm text-[#9198A1] font-sans-code">
-                Praying website doesn't crash
-              </span>
-            </div>
-            <div className="flex items-center w-1/2 lg:w-auto">
-              <span className="w-3 h-3 mr-2 rounded-full bg-[#6541B2]" />
-              <span className="text-sm text-[#9198A1] font-sans-code">
-                Fixing what we just broke
-              </span>
-            </div>
-          </div>
+          <div className='w-[80%]'>
+            <hr className="w-full h-[3px] bg-[#30363D] border-none mb-2 lg:mb-4" />
+            <p className="w-full text-[1rem] lg:text-[0.8rem] leading-[19px] text-[#9198A1] font-normal font-sans-code mb-4 lg:mb-6">
+              Explore our collection of innovative projects, crafted with creativity and skill. Whether built for events or personal growth, each project showcases our dedication and passion!
+            </p>
 
-          <div className="flex flex-wrap mt-1">
-            <div className="flex items-center w-1/2 lg:w-auto lg:mr-24">
-              <span className="w-3 h-3 mr-2 rounded-full bg-[#FFB249]" />
-              <span className="text-sm text-[#9198A1] font-sans-code">
-                Coding
-              </span>
+            {/* Horizontal colored bars */}
+            <div className="mt-2 w-full max-w-sm h-[4px] bg-gray-800 flex rounded-lg overflow-hidden gap-x-1">
+              <div className="flex-[6] bg-[#F5502A] rounded-l-[6px]" />
+              <div className="flex-[4] bg-[#6541B2]" />
+              <div className="flex-[3] bg-[#FFB249]" />
+              <div className="flex-[1] bg-[#54A3FF] rounded-r-[6px]" />
             </div>
-            <div className="flex items-center w-1/2 lg:w-auto">
-              <span className="w-3 h-3 mr-2 rounded-full bg-[#54A3FF]" />
-              <span className="text-sm text-[#9198A1] font-sans-code">
-                Planning
-              </span>
+
+            {/* Legend for above bars */}
+            <div className="flex flex-wrap mt-2 gap-y-2 gap-[2%] w-full">
+              {[
+                "Debugging",
+                'Coding',
+                'Designing',
+                'Planning',
+              ].map((proj, index) => (
+                <div key={proj} className="flex items-center w-[49%]">
+                  <span
+                    className="w-[8px] h-[8px] mr-2 rounded-full"
+                    style={{
+                      backgroundColor:
+                        index === 0
+                          ? '#F5502A'
+                          : index === 1
+                            ? '#6541B2'
+                            : index === 2
+                              ? '#FFB249'
+                              : '#54A3FF',
+                    }}
+                  />
+                  <span className="text-xs text-[#9198A1] font-sans-code">
+                    {proj}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="lg:w-[70%]  lg:mt-[-8px] h-screen lg:h-[calc(100vh-10rem)]">
+        {/* PROJECTS LISTING */}
+        <div className="lg:w-[60%] md:mt-[2em] lg:mt-[-8px] lg:h-fit mb-[2em]">
           <div className="border-[3px] border-[#30363D] rounded-[6px] ">
+
             <div className="h-full">
               {projects.map((project, index) => (
                 <div
@@ -84,25 +86,29 @@ const ProjectPage = () => {
                 >
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-2 lg:gap-3">
                     <div className="flex-grow relative">
+
+                      {/* title */}
                       <div className="flex justify-between items-start">
                         <Link
                           href={project.repoLink}
                           className="text-[19px] text-[rgba(88,166,255,1)] flex items-center font-sans-code font-normal leading-[25px]"
                         >
-                          <img
-                            src="/bookmark.webp"
-                            alt="Bookmark"
-                            className="mt-2 w-4 h-4 lg:w-6 lg:h-6 mr-2"
-                          />
                           <span className="mt-1 font-normal text-lg">
                             {project.projectTitle}
                           </span>
+
                         </Link>
                       </div>
+
+                      {/* description */}
                       <p className="text-xs md:text-[13px] text-[#8B949E] font-normal leading-[21px] md:mt-1 font-sans-code">
                         {project.projectDescription}
                       </p>
-                      <div className="flex flex-wrap items-center mt-2 md:mt-1 gap-2">
+
+                      {/* tags */}
+                      <div className="flex flex-wrap items-center mt-2 md:mt-1 gap-4">
+
+                        {/* programming language */}
                         <div className="flex items-center">
                           <span
                             className="w-2 h-2 mr-1 rounded-full"
@@ -116,14 +122,19 @@ const ProjectPage = () => {
                             {project.language}
                           </span>
                         </div>
+
+                        {/* project author */}
                         <div className="flex items-center text-[12px] text-[#8B949E] font-sans-code">
                           <img
                             src="/github.webp"
                             alt="Raju Rastogi"
-                            className="w-4 h-4 lg:w-13 lg:h-13 rounded-full mr-2"
+                            className="w-4 h-4 lg:w-13 lg:h-13 rounded-full mr-1"
                           />
-                          <span>Built By: {project.builtBy}</span>
+                          <Link href={project.authorLink}>
+                            <span>{project.builtBy}</span>
+                          </Link>
                         </div>
+                        
                       </div>
                     </div>
                     {/* <img
