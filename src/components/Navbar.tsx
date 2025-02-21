@@ -4,10 +4,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
-import FaRegStar from 'public/logos/navbar-logos/FaRegStar.svg'
-import IoBookOutline from 'public/logos/navbar-logos/IoBookOutline.svg'
-import LuTable from 'public/logos/navbar-logos/LuTable.svg'
-import IoCubeOutline from 'public/logos/navbar-logos/IoCubeOutline.svg'
+import aboutLogo from 'public/logos/navbar-logos/about.svg'
+import projectsLogo from 'public/logos/navbar-logos/projects.svg'
+import domainsLogo from 'public/logos/navbar-logos/domains.svg'
+import alumniLogo from 'public/logos/navbar-logos/alumni.svg'
+import faqsLogo from 'public/logos/navbar-logos/faqs.svg'
 
 import NavLink from './nav-link'
 import { MenuIcon, X } from 'lucide-react'
@@ -19,27 +20,32 @@ const navLinks = [
   {
     id: 'about',
     label: 'About',
-    Icon: IoBookOutline,
+    Icon: aboutLogo,
     href: '/dashboard',
   },
   {
     id: 'project',
     label: 'Projects',
-    Icon: LuTable,
+    Icon: projectsLogo,
     href: '/dashboard/project',
   },
   {
     id: 'domains',
     label: 'Domains',
-    Icon: IoCubeOutline,
+    Icon: domainsLogo,
     href: '/dashboard/domains',
   },
-  { id: 'alumni', label: 'Alumni', Icon: FaRegStar, href: '/dashboard/alumni' },
   {
-    id: 'faq',
+    id: 'alumni',
+    label: 'Alumni',
+    Icon: alumniLogo,
+    href: '/dashboard/alumni',
+  },
+  {
+    id: 'faqs',
     label: 'FAQs',
-    Icon: '/logos/navbar-logos/faq.png',
-    href: '/dashboard/faq',
+    Icon: faqsLogo,
+    href: '/dashboard/faqs',
   },
 ]
 interface NavbarProps {
@@ -165,12 +171,6 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
                 {/* TODO@jrs : Replace with the actual username and photograph */}
                 <span>{username}</span>
               </div>
-              {/* <a href="#home" className="font-semibold text-lg mb-2">
-                Home
-              </a>
-              <a href="#faqs" className="font-semibold text-lg mb-2">
-                FAQs
-              </a> */}
             </div>
 
             <div className="w-full flex flex-col gap-2">
