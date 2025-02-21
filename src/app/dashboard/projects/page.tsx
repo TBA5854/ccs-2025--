@@ -18,15 +18,14 @@ const ProjectPage = () => {
     }
   }
   return (
-    <div className="w-full h-fit bg-[#0A0A0A]">
-      <div className="w-full h-fit md:w-4/5 mx-auto flex flex-col lg:flex-row gap-8 md:gap-0 px-4 lg:px-10 mt-6 lg:mt-12">
+    <div className="w-full h-full bg-[#0A0A0A]">
+      <div className="w-full h-full md:w-4/5 mx-auto flex flex-col lg:flex-row px-4 lg:px-10 lg:mt-12">
         {/* LEFT PANEL */}
-        <div className="ml-2 lg:w-[40%] text-white lg:sticky lg:top-0 lg:h-screen">
-          <h1 className="text-white font-sans-code text-2xl lg:text-[36px] font-semibold leading-[30px] mb-2 lg:mb-4">
-            Projects
-          </h1>
-
-          <div className="w-[80%]">
+        <div className="static ml-2 lg:w-[40%] text-white h-fit">
+          <div className="hidden lg:block lg:fixed w-[80%] lg:w-[20%]">
+            <h1 className="text-white font-sans-code text-2xl lg:text-[36px] font-semibold leading-[30px] mb-2 lg:mb-4">
+              Projects
+            </h1>
             <hr className="w-full h-[3px] bg-[#30363D] border-none mb-2 lg:mb-4" />
             <p className="w-full text-[1rem] lg:text-[0.8rem] leading-[19px] text-[#9198A1] font-normal font-sans-code mb-4 lg:mb-6">
               Explore our collection of innovative projects, crafted with
@@ -71,7 +70,7 @@ const ProjectPage = () => {
         </div>
 
         {/* PROJECTS LISTING */}
-        <div className="lg:w-[60%] md:mt-[2em] lg:mt-[-8px] lg:h-fit mb-[2em]">
+        <div className="lg:w-[60%] mt-[2em] lg:mt-[-8px] lg:h-fit mb-[2em]">
           <div className="border-[3px] border-[#30363D] rounded-[6px] ">
             <div className="h-full">
               {projects.map((project, index) => (
