@@ -16,7 +16,8 @@ export const projects = [
   },
   {
     projectTitle: 'regit',
-    projectDescription: 'A CLI tool written in Golang to rewrite Git histories.',
+    projectDescription:
+      'A CLI tool written in Golang to rewrite Git histories.',
     language: Languages.TYPESCRIPT,
     builtBy: 'Aryan Bharti',
     repoLink: 'https://github.com/woaitsAryan/regit',
@@ -33,7 +34,7 @@ export const projects = [
   {
     projectTitle: 'ctf-challenges',
     projectDescription:
-    'An aggregation of the Capture The Flag challenges and write-ups for CSICTF 2020',
+      'An aggregation of the Capture The Flag challenges and write-ups for CSICTF 2020',
     language: Languages.JAVASCRIPT,
     builtBy: 'Rohan Mukherjee',
     repoLink: 'https://github.com/csivitu/ctf-challenges',
@@ -49,7 +50,8 @@ export const projects = [
   },
   {
     projectTitle: 'bl0b',
-    projectDescription: "A discord bot to notify you about upcoming CTFs from CTFtime, and more.",
+    projectDescription:
+      'A discord bot to notify you about upcoming CTFs from CTFtime, and more.',
     language: Languages.JAVASCRIPT,
     builtBy: 'Rohan Mukherjee, Mannan Goyal',
     repoLink: 'https://github.com/csivitu/bl0b',
@@ -58,7 +60,7 @@ export const projects = [
   {
     projectTitle: 'code-executor',
     projectDescription:
-    'A CLI designed to test user code against user defined inputs',
+      'A CLI designed to test user code against user defined inputs',
     language: Languages.TYPESCRIPT,
     builtBy: 'Ashikka Gupta, Rohan Mukherjee, Rahil Kabani',
     repoLink: 'https://github.com/csivitu/code-executor',

@@ -18,12 +18,10 @@ export default function Dashboard() {
     <div className="min-h-screen bg-zinc-950">
       <SidebarProvider>
         <div className="p-4 w-full md:w-4/5 mx-auto">
-
           {/* Header */}
           <div className="flex flex-grow items-top w-full gap-4 mb-4 my-2">
-
             {/* Header csi logo */}
-            <div className='h-0 md:h-[80px] w-0 md:w-[80px]'>
+            <div className="h-0 md:h-[80px] w-0 md:w-[80px]">
               <Image
                 src="/logo.png"
                 alt="CSI Logo"
@@ -35,7 +33,6 @@ export default function Dashboard() {
 
             {/* Header content */}
             <div className="flex-1 flex flex-col justify-between w-full h-auto text-left">
-
               {/* Title & slogan only */}
               <div>
                 <h1 className="md:mt-2 text-[1.15rem] font-[600] text-white font-sans-code">
@@ -63,7 +60,7 @@ export default function Dashboard() {
                   </div>
 
                   {/* Hide these links on standard-width devices */}
-                  <div className='hidden xl:flex xl:flex-row xl:gap-6'>
+                  <div className="hidden xl:flex xl:flex-row xl:gap-6">
                     <a
                       href="https://csvit.com"
                       className="hover:text-white transition-colors flex items-center gap-2"
@@ -98,13 +95,11 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-
           </div>
 
           <div className="w-full md:w-full h-[3px] bg-[#30363D] my-4 mt-4 md:mt-[-2px] mb-4 md:mb-8" />
 
           <div className="flex flex-col lg:flex-row lg:gap-4 text-white">
-
             {/* README.md block */}
             <main className="flex-1 space-y-4 w-full">
               <Card className="border-[2px] border-[#30363D] rounded-[6px] bg-[#0D1117] max-w-full w-full mx-auto">
@@ -135,22 +130,22 @@ export default function Dashboard() {
                       competitions drive technological innovation.
                     </p>
                     <div className="w-full md:w-full border-t-4 border-gray-800 my-4 mt-2 lg:mt-12" />
-                      <p className="mt-2 lg:mt-6 text-center text-sm md:text-[1rem]">
-                        Visit{' '}
-                        <a
-                          href="https://csivit.com"
-                          className="underline text-blue-300 underline-offset-4"
-                        >
-                          csivit.com
-                        </a>{' '}
-                        to learn more!
-                      </p>
-                      <Footer/>
+                    <p className="mt-2 lg:mt-6 text-center text-sm md:text-[1rem]">
+                      Visit{' '}
+                      <a
+                        href="https://csivit.com"
+                        className="underline text-blue-300 underline-offset-4"
+                      >
+                        csivit.com
+                      </a>{' '}
+                      to learn more!
+                    </p>
+                    <Footer />
                   </div>
                 </div>
               </Card>
             </main>
-            
+
             {/* Team, Stack & Events block */}
             <aside className="mt-6 lg:mt-0 w-full lg:w-1/3 h-full border-[2px] border-[#30363D] rounded-[6px]">
               <div className="border-zinc-800 bg-zinc-900/50 p-2">

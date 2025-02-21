@@ -38,7 +38,12 @@ export default async function DashboardLayout({
               Profile Completion Required!
             </h1>
             <p className="text-xs lg:text-sm">
-              To enhance your experience and ensure seamless communication, please visit <Link href={'/dashboard/profile'} className='underline'>Profile</Link> and fill your personal details.
+              To enhance your experience and ensure seamless communication,
+              please visit{' '}
+              <Link href={'/dashboard/profile'} className="underline">
+                Profile
+              </Link>{' '}
+              and fill your personal details.
             </p>
           </div>
         </div>

@@ -20,17 +20,18 @@ const ProjectPage = () => {
   return (
     <div className="w-full h-fit bg-[#0A0A0A]">
       <div className="w-full h-fit md:w-4/5 mx-auto flex flex-col lg:flex-row gap-8 md:gap-0 px-4 lg:px-10 mt-6 lg:mt-12">
-
         {/* LEFT PANEL */}
         <div className="ml-2 lg:w-[40%] text-white lg:sticky lg:top-0 lg:h-screen">
           <h1 className="text-white font-sans-code text-2xl lg:text-[36px] font-semibold leading-[30px] mb-2 lg:mb-4">
             Projects
           </h1>
 
-          <div className='w-[80%]'>
+          <div className="w-[80%]">
             <hr className="w-full h-[3px] bg-[#30363D] border-none mb-2 lg:mb-4" />
             <p className="w-full text-[1rem] lg:text-[0.8rem] leading-[19px] text-[#9198A1] font-normal font-sans-code mb-4 lg:mb-6">
-              Explore our collection of innovative projects, crafted with creativity and skill. Whether built for events or personal growth, each project showcases our dedication and passion!
+              Explore our collection of innovative projects, crafted with
+              creativity and skill. Whether built for events or personal growth,
+              each project showcases our dedication and passion!
             </p>
 
             {/* Horizontal colored bars */}
@@ -43,31 +44,28 @@ const ProjectPage = () => {
 
             {/* Legend for above bars */}
             <div className="flex flex-wrap mt-2 gap-y-2 gap-[2%] w-full">
-              {[
-                "Debugging",
-                'Coding',
-                'Designing',
-                'Planning',
-              ].map((proj, index) => (
-                <div key={proj} className="flex items-center w-[49%]">
-                  <span
-                    className="w-[8px] h-[8px] mr-2 rounded-full"
-                    style={{
-                      backgroundColor:
-                        index === 0
-                          ? '#F5502A'
-                          : index === 1
-                            ? '#6541B2'
-                            : index === 2
-                              ? '#FFB249'
-                              : '#54A3FF',
-                    }}
-                  />
-                  <span className="text-xs text-[#9198A1] font-sans-code">
-                    {proj}
-                  </span>
-                </div>
-              ))}
+              {['Debugging', 'Coding', 'Designing', 'Planning'].map(
+                (proj, index) => (
+                  <div key={proj} className="flex items-center w-[49%]">
+                    <span
+                      className="w-[8px] h-[8px] mr-2 rounded-full"
+                      style={{
+                        backgroundColor:
+                          index === 0
+                            ? '#F5502A'
+                            : index === 1
+                              ? '#6541B2'
+                              : index === 2
+                                ? '#FFB249'
+                                : '#54A3FF',
+                      }}
+                    />
+                    <span className="text-xs text-[#9198A1] font-sans-code">
+                      {proj}
+                    </span>
+                  </div>
+                ),
+              )}
             </div>
           </div>
         </div>
@@ -75,7 +73,6 @@ const ProjectPage = () => {
         {/* PROJECTS LISTING */}
         <div className="lg:w-[60%] md:mt-[2em] lg:mt-[-8px] lg:h-fit mb-[2em]">
           <div className="border-[3px] border-[#30363D] rounded-[6px] ">
-
             <div className="h-full">
               {projects.map((project, index) => (
                 <div
@@ -86,7 +83,6 @@ const ProjectPage = () => {
                 >
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-2 lg:gap-3">
                     <div className="flex-grow relative">
-
                       {/* title */}
                       <div className="flex justify-between items-start">
                         <Link
@@ -96,7 +92,6 @@ const ProjectPage = () => {
                           <span className="mt-1 font-normal text-lg">
                             {project.projectTitle}
                           </span>
-
                         </Link>
                       </div>
 
@@ -107,7 +102,6 @@ const ProjectPage = () => {
 
                       {/* tags */}
                       <div className="flex flex-wrap items-center mt-2 md:mt-1 gap-4">
-
                         {/* programming language */}
                         <div className="flex items-center">
                           <span
@@ -134,7 +128,6 @@ const ProjectPage = () => {
                             <span>{project.builtBy}</span>
                           </Link>
                         </div>
-                        
                       </div>
                     </div>
                     {/* <img
