@@ -154,12 +154,10 @@ export default function Dashboard() {
             {/* Team, Stack & Events block */}
             <aside className="mt-6 lg:mt-0 w-full lg:w-1/3 h-full border-[2px] border-[#30363D] rounded-[6px]">
               <div className="border-zinc-800 bg-zinc-900/50 p-2">
-                <SidebarHeader>
-                  <h2 className=" lg:mt-0 text-[1rem] lg:text-[1.325rem] font-sans-code text-white  font-semibold">
-                    Our Team
-                  </h2>
-                </SidebarHeader>
                 <SidebarContent>
+                  <SidebarGroupLabel className="text-[1rem] lg:text-[1.325rem] font-sans-code font-600">
+                    Core Team
+                  </SidebarGroupLabel>
                   <div className="-mt-2 lg:mt-[-12px] ml-[-10px] grid grid-cols-6 gap-y-2 md:gap-y-1  lg:gap-2 p-4">
                     {teamData.map((member) => (
                       <div
@@ -177,11 +175,11 @@ export default function Dashboard() {
                     ))}
                   </div>
 
-                  <div className="w-[92%] ml-2 border-t-4 border-[#30363D] my-4 -mt-2 lg:mt-0 " />
+                  <div className="w-[92%] ml-2 border-t-4 border-[#30363D] my-2 lg:mt-0 " />
 
                   <SidebarGroup>
-                    <SidebarGroupLabel className="text-[1rem] font-semibold lg:text-[1.325rem] -mt-8 lg:mt-[-20px] ml-[-6px] font-sans-code font-600">
-                      Most recent events
+                    <SidebarGroupLabel className="text-[1rem] lg:text-[1.325rem] ml-[-6px] font-sans-code font-600">
+                      Main Events
                     </SidebarGroupLabel>
                     <SidebarGroupContent>
                       <div className="flex flex-wrap gap-1 md:gap-2 mt-2">
@@ -190,10 +188,13 @@ export default function Dashboard() {
                           'LaserTag',
                           'DevSpace',
                           'Riddler',
+                          'Init With CSI',
+                          'Byte Bistro',
+                          'CaSScade',
                         ].map((event) => (
                           <span
                             key={event}
-                            className="rounded-[24px] bg-zinc-800 px-2 md:px-2 py-1 md:py-1.5 md:py-2 text-lg md:text-xs text-sans-code text-zinc-400"
+                            className="rounded-[24px] bg-zinc-800 px-2 md:px-2 py-1 md:py-1.5 md:py-2 text-sm md:text-xs text-sans-code text-zinc-400"
                           >
                             {event}
                           </span>
