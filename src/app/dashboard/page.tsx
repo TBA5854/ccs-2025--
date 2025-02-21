@@ -180,48 +180,6 @@ export default function Dashboard() {
                   <div className="w-[92%] ml-2 border-t-4 border-[#30363D] my-4 -mt-2 lg:mt-0 " />
 
                   <SidebarGroup>
-                    <SidebarGroupLabel className="text-[1rem] lg:text-[1.325rem] ml-[-8px] -mt-6 lg:mt-[-12px] font-sans-code font-[600]">
-                      CSI Stack
-                    </SidebarGroupLabel>
-                    <SidebarGroupContent>
-                      <div className="mt-2 w-full max-w-sm h-2.5 bg-gray-800 flex rounded-lg overflow-hidden gap-x-1">
-                        <div className="flex-[6] bg-[#F5502A] rounded-l-[6px]" />
-                        <div className="flex-[4] bg-[#6541B2]" />
-                        <div className="flex-[3] bg-[#FFB249]" />
-                        <div className="flex-[1] bg-[#54A3FF] rounded-r-[6px]" />
-                      </div>
-                      <div className="flex flex-wrap mt-2 gap-y-2 gap-[2%] w-full">
-                        {[
-                          "Debugging",
-                          'Coding',
-                          'Designing',
-                          'Planning',
-                        ].map((proj, index) => (
-                          <div key={proj} className="flex items-center w-[49%]">
-                            <span
-                              className="w-3 h-3 mr-2 rounded-full"
-                              style={{
-                                backgroundColor:
-                                  index === 0
-                                    ? '#F5502A'
-                                    : index === 1
-                                      ? '#6541B2'
-                                      : index === 2
-                                        ? '#FFB249'
-                                        : '#54A3FF',
-                              }}
-                            />
-                            <span className="text-xs text-[#9198A1] font-sans-code">
-                              {proj}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="w-[96%] ml-[-1px] border-t-4 border-[#30363D] my-4 mt-6" />
-                    </SidebarGroupContent>
-                  </SidebarGroup>
-
-                  <SidebarGroup>
                     <SidebarGroupLabel className="text-[1rem] font-semibold lg:text-[1.325rem] -mt-8 lg:mt-[-20px] ml-[-6px] font-sans-code font-600">
                       Most recent events
                     </SidebarGroupLabel>
