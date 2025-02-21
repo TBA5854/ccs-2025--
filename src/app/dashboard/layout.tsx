@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { auth } from '../(auth)/auth'
 import Navbar from '@/components/Navbar'
-import { IoIosWarning } from 'react-icons/io'
 import { RiErrorWarningLine } from 'react-icons/ri'
 import { prisma } from '@/lib/db'
 
@@ -32,15 +32,13 @@ export default async function DashboardLayout({
           className="w-full py-3 bg-orange-400/20 border-orange-900/70 border-b px-4 md:px-8 font-apro flex items-center gap-4"
           id="profile-completion-banner"
         >
-          <RiErrorWarningLine className="w-20 md:w-12 h-20 md:h-12 text-orange-100" />
+          <RiErrorWarningLine className="w-16 md:w-8 h-16 md:h-8 text-yellow-200" />
           <div className="">
-            <h1 className="font-bold text-sm md:text-lg">
-              Profile Completion Required
+            <h1 className="font-semibold text-sm lg:text-base">
+              Profile Completion Required!
             </h1>
-            <p className="text-xs md:text-sm lg:text-base">
-              To enhance your experience and ensure seamless communication,
-              please visit the <strong>Profile Page</strong> and complete your
-              personal details.
+            <p className="text-xs lg:text-sm">
+              To enhance your experience and ensure seamless communication, please visit <Link href={'/dashboard/profile'} className='underline'>Profile</Link> and fill your personal details.
             </p>
           </div>
         </div>
