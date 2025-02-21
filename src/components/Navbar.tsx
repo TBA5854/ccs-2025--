@@ -16,11 +16,11 @@ import { projects } from '@/data/projects'
 import { alumniData } from '@/data/alumni'
 
 const navLinks = [
-  { 
+  {
     id: 'about',
     label: 'About',
     Icon: IoBookOutline,
-    href: '/dashboard'
+    href: '/dashboard',
   },
   {
     id: 'project',
@@ -77,8 +77,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
         </div>
 
         {/* Top bar of the page */}
-        <div className='flex flex-row justify-between items-center'>
-
+        <div className="flex flex-row justify-between items-center">
           {/* All navigation links here */}
           <div className="hidden sm:flex flex-row gap-4 md:gap-8 mt-2 text-center text-[#C9D1D9] font-sans-code text-[16px] font-normal leading-[30px]">
             {navLinks.map((item) => (
@@ -114,7 +113,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
           </div>
 
           {/* Profile icon & round one alert */}
-          <div className='hidden md:flex flex-row items-center justify-content-center'>
+          <div className="hidden md:flex flex-row items-center justify-content-center">
             <div className="hidden lg:flex font-apro font-semibold text-nowrap border-[1px] border-white/50 bg-black text-white px-8 py-2 rounded-[0.5rem] mr-4 shadow-[0px_0px_8px_#ffffff80] text-xs md:text-sm">
               <span className="animate-pulse duration-[800]">
                 Round 1 is Live!
@@ -133,7 +132,6 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
               />
             </Link>
           </div>
-
         </div>
       </div>
 
