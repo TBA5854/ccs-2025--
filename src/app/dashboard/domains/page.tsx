@@ -43,10 +43,10 @@ export default function DomainsPage() {
     defaultLabel: string,
   ): string => {
     switch (status) {
-      case DomainStatus.IN_PROGRESS:
-        return 'Continue Test'
-      case DomainStatus.COMPLETED:
-        return 'Test Finished'
+      // case DomainStatus.IN_PROGRESS:
+      //   return 'Continue Test'
+      // case DomainStatus.COMPLETED:
+      //   return 'Test Finished'
       default:
         return defaultLabel
     }
@@ -69,7 +69,7 @@ export default function DomainsPage() {
         'Development, data science, cybersecurity and more! We discuss the latest trends in tech and create ground-breaking solutions. Those who dare enter, suffer from sleepless nights resolving merge conflicts.',
       status: getDomainStatus('TECH'),
       get buttonLabel() {
-        return getButtonLabel(this.status, "Let's Start Coding")
+        return getButtonLabel(this.status, 'Build, Debug, Repeat!')
       },
       get disabled() {
         return isDisabled(this.status)
@@ -79,10 +79,10 @@ export default function DomainsPage() {
       domainName: 'Management',
       domainIcon: managementLogo,
       description:
-        'The glue that holds everything together and keeps us going forward. Organize events and drive real-world impact. Enter if you thrive in chaos and can turn last-minute disasters into seamless executions.',
+        'The glue that holds everything together and keeps us going forward. Organize events and drive real-world impact. Step in if you thrive in chaos and can turn last-minute disasters into seamless executions.',
       status: getDomainStatus('MANAGEMENT'),
       get buttonLabel() {
-        return getButtonLabel(this.status, 'Get those finances right')
+        return getButtonLabel(this.status, 'Plan, Organize, Succeed!')
       },
       get disabled() {
         return isDisabled(this.status)
@@ -95,7 +95,7 @@ export default function DomainsPage() {
         'Master UI/UX, branding, and digital art to create stunning visuals that leave a lasting impact. If you choose to dive into design, you will learn to make things look good (without losing your mind).',
       status: getDomainStatus('DESIGN'),
       get buttonLabel() {
-        return getButtonLabel(this.status, 'Dive Into Design')
+        return getButtonLabel(this.status, 'Create, Inspire, Innovate!')
       },
       get disabled() {
         return isDisabled(this.status)
@@ -108,7 +108,7 @@ export default function DomainsPage() {
         "Ready to unleash your inner director? Learn the art of cinematography, editing, and storytelling to produce eye-catching reels that stand out! Once you start, you'll never watch videos the same way again.",
       status: getDomainStatus('VIDEO'),
       get buttonLabel() {
-        return getButtonLabel(this.status, 'Live. Camera. Action.')
+        return getButtonLabel(this.status, 'Lights, Camera, Action!')
       },
       get disabled() {
         return isDisabled(this.status)
@@ -129,7 +129,7 @@ export default function DomainsPage() {
       </div>
 
       {/* Domains Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 grid-rows-1 gap-4 lg:gap-8 max-w-[1000px] mx-auto px-2 sm:px-4 my-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-1 gap-4 lg:gap-8 max-w-[1000px] mx-auto px-2 sm:px-4 my-8">
         {content.map((domain) => (
           <DomainCard {...domain} loading={loading} key={domain.domainName} />
         ))}
