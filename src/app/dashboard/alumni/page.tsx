@@ -59,9 +59,12 @@ const AlumniPage = () => {
                           </div>
 
                           {/* description */}
-                          <div className="flex flex-row">
+                          <div className="flex flex-col">
                             <p className="text-xs md:text-[13px] text-[#8B949E] font-normal leading-[21px] md:mt-1 font-sans-code">
-                              {person.expertise}, {person.company}
+                              {person.position}, {person.company}
+                            </p>
+                            <p className="text-xs md:text-[13px] text-[#8B949E] font-normal leading-[21px] font-sans-code">
+                              {person.expertise}
                             </p>
                           </div>
                         </div>
