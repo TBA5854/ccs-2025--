@@ -32,7 +32,7 @@ const DomainCard: FC<domainCardProps & { loading: boolean }> = ({
       return 'border-[#F5A10A]/20';
     }
     else if (dname === "Video") {
-      return 'border-[#AA3731]/20';
+      return 'border-[#C93028]/20';
     }
   }
 
@@ -50,7 +50,7 @@ const DomainCard: FC<domainCardProps & { loading: boolean }> = ({
       return 'bg-[#F5A10A]/20 text-[#C9D1D9] hover:bg-[#F5A10A]';
     }
     else if (dname === "Video") {
-      return 'bg-[#AA3731]/20 text-[#C9D1D9] hover:bg-[#AA3731]';
+      return 'bg-[#C93028]/20 text-[#C9D1D9] hover:bg-[#C93028]';
     }
   };
 
