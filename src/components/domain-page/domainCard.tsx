@@ -21,7 +21,7 @@ const DomainCard: FC<domainCardProps & { loading: boolean }> = ({
           height={50}
           className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14"
         />
-        <span className="text-[24px] lg:text-[28px] text-[#C9D1D9] font-sans-code font-semibold leading-[20px] text-center">
+        <span className="text-[1rem] lg:text-[1rem] text-[#C9D1D9] font-sans-code font-semibold leading-[20px] text-center">
           {domainName}
         </span>
       </div>

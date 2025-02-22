@@ -67,7 +67,7 @@ export default function DomainsPage() {
       domainName: 'Tech',
       domainIcon: techLogo,
       description:
-        'Docker, Node, Express, React—if these words mean anything to you, consider joining the Tech domain, the invisible team behind all our projects. Many sleepless nights of debugging await those who dare enter.',
+        'Development, data science, blockchain, cybersecurity and more! We discuss the latest trends in tech and create ground-breaking solutions. Those who dare enter, suffer from sleepless nights resolving merge conflicts.',
       status: getDomainStatus('TECH'),
       get buttonLabel() {
         return getButtonLabel(this.status, "Let's Start Coding")
@@ -80,7 +80,7 @@ export default function DomainsPage() {
       domainName: 'Design',
       domainIcon: designLogo,
       description:
-        'Ever struggled to center a div? Or maybe Blender keeps crashing at the worst possible moment? Dive into design and learn the ins and outs of making things look good (without losing your mind). ',
+        'Master UI/UX, branding, and digital art to create stunning visuals that leave a lasting impact. If you choose to dive into design, you will learn to make things look good (without losing your mind).',
       status: getDomainStatus('DESIGN'),
       get buttonLabel() {
         return getButtonLabel(this.status, 'Dive Into Design')
@@ -93,7 +93,7 @@ export default function DomainsPage() {
       domainName: 'Management',
       domainIcon: managementLogo,
       description:
-        'The glue that holds everything together—where would we be without the Management domain? Want to organize events or enjoy the thrill of shouting at vendors (professionally, of course), this might be for you.',
+        'The glue that holds everything together and keeps us going forward. Organize events and drive real-world impact. Enter if you thrive in chaos and can turn last-minute disasters into seamless executions.',
       status: getDomainStatus('MANAGEMENT'),
       get buttonLabel() {
         return getButtonLabel(this.status, 'Get those finances right')
@@ -106,7 +106,7 @@ export default function DomainsPage() {
       domainName: 'Video',
       domainIcon: videoLogo,
       description:
-        'Ready to unleash your inner director? Join the select few in Video who have mastered Adobe, crafting eye-catching reels and bringing stories to life. This is your stage to shine!',
+        'Ready to unleash your inner director? Learn the art of cinematography, editing, and storytelling to produce eye-catching reels that stand out! Once you start, you\'ll never watch videos the same way again.',
       status: getDomainStatus('VIDEO'),
       get buttonLabel() {
         return getButtonLabel(this.status, 'Live. Camera. Action.')
@@ -119,30 +119,17 @@ export default function DomainsPage() {
 
   return (
     <main className="flex-1 px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col items-center gap-4 sm:gap-6 text-center">
-        <Image
-          src={csiLogo}
-          alt="CSI Logo"
-          width={480}
-          height={92}
-          className="w-52 md:w-80 mt-8 my-4 mb-8"
-          priority
-        />
-        <h1 className="text-white font-sans-code text-lg sm:text-2xl lg:text-3xl font-semibold leading-normal sm:leading-relaxed px-2">
+      <div className="flex flex-col items-center gap-4 sm:gap-6 text-center mt-8">
+        <h1 className="text-white font-sans-code text-lg lg:text-2xl font-semibold leading-normal sm:leading-relaxed px-2">
           Welcome to CSI! Let's get started.
         </h1>
-        <p className="text-[#9198A1] font-sans-code text-sm -mt-4 sm:text-base lg:text-lg font-normal leading-relaxed max-w-3xl px-2">
-          Choose your domains and start answering the questions. Remember once
-          chosen you can't pause. Max 2 domains to be chosen.
+        <p className="text-[#9198A1] font-sans-code text-sm -mt-4 sm:text-base lg:text-md font-normal leading-relaxed max-w-3xl px-2">
+          You can choose upto 2 domains. Once you start a questionaire, you cannot pause it. All the best!
         </p>
       </div>
 
-      <p className="text-lg  sm:text-3xl text-[#9198A1] font-sans-code font-[600] text-center my-8">
-        Select your domain.
-      </p>
-
       {/* Domains Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-10 max-w-[1000px] mx-auto px-2 sm:px-4 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-1 gap-4 lg:gap-8 max-w-[1000px] mx-auto px-2 sm:px-4 mt-8">
         {content.map((domain) => (
           <DomainCard {...domain} loading={loading} key={domain.domainName} />
         ))}
