@@ -122,7 +122,7 @@ export default function Dashboard() {
                     <div className="w-full md:w-full mx-auto border-t-4 border-gray-800 my-4 font-sans-code" />
                     <p className="text-sm md:text-[1rem] font-semibold text-center text-white my-4 lg:my-8">
                       When we build, it matters.
-                    </p>                    
+                    </p>
                     <p className="my-4 lg:my-8 text-xs md:text-[0.9rem] text-justify md:text-left font-sans-code leading-normal">
                       We are the largest association of computer professionals
                       in India, composed of skilled designers, developers, and
@@ -179,45 +179,44 @@ export default function Dashboard() {
                     <SidebarGroupContent>
                       <div className="flex flex-wrap gap-1 md:gap-2 mt-2">
                         {[
-
                           {
                             name: 'ForkThis',
-                            icon: '😺'
+                            icon: '😺',
                           },
                           {
                             name: 'LaserTag',
-                            icon: '🔫'
+                            icon: '🔫',
                           },
                           {
                             name: 'DevSpace',
-                            icon: '🌌'
+                            icon: '🌌',
                           },
                           {
                             name: 'Riddler',
-                            icon: '🧩'
+                            icon: '🧩',
                           },
                           {
                             name: 'Init With CSI',
-                            icon: '🎓'
+                            icon: '🎓',
                           },
                           {
                             name: 'Byte Bistro',
-                            icon: '🍷'
+                            icon: '🍷',
                           },
                           {
                             name: 'CaSScade',
-                            icon: '🎭'
+                            icon: '🎭',
                           },
                           {
                             name: 'BugeDéx',
-                            icon: '🐛'
+                            icon: '🐛',
                           },
                         ].map((event) => (
                           <span
                             key={event.name}
                             className="flex items-center gap-1 rounded-full bg-zinc-900 px-3 py-1 text-xs text-zinc-300"
-                            >
-                            {<span className='text-sm'>{event.icon}</span>}
+                          >
+                            {<span className="text-sm">{event.icon}</span>}
                             {event.name}
                           </span>
                         ))}

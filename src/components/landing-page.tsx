@@ -109,7 +109,8 @@ export default function Home() {
             Welcome
           </p>
           <p className="mobile:text-left mobile:text-sm text-sm sm:text-lg md:text-xl max-w-xl text-[#7675A1] text-center sm:text-left leading-relaxed">
-            You made it! Sign up, pick your domain, and answer a few key questions—you're just moments away from joining CSI.
+            You made it! Sign up, pick your domain, and answer a few key
+            questions—you're just moments away from joining CSI.
           </p>
         </div>
 

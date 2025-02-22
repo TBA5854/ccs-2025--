@@ -9,9 +9,9 @@ const notoSans = Noto_Sans({
 })
 
 export const metadata = {
-  title: "CSI Recruitments 2025",
+  title: 'CSI Recruitments 2025',
   icons: {
-    icon: "/icons/favicon.png",
+    icon: '/icons/favicon.png',
   },
 }
 

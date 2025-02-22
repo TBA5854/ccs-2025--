@@ -105,7 +105,7 @@ export default function DomainsPage() {
       domainName: 'Video',
       domainIcon: videoLogo,
       description:
-        'Ready to unleash your inner director? Learn the art of cinematography, editing, and storytelling to produce eye-catching reels that stand out! Once you start, you\'ll never watch videos the same way again.',
+        "Ready to unleash your inner director? Learn the art of cinematography, editing, and storytelling to produce eye-catching reels that stand out! Once you start, you'll never watch videos the same way again.",
       status: getDomainStatus('VIDEO'),
       get buttonLabel() {
         return getButtonLabel(this.status, 'Live. Camera. Action.')
@@ -123,7 +123,8 @@ export default function DomainsPage() {
           Welcome to CSI! Let's get started.
         </h1>
         <p className="text-[#9198A1] font-sans-code text-sm -mt-4 sm:text-base lg:text-md font-normal leading-relaxed max-w-3xl px-2">
-          You can choose upto 2 domains. Once you start a questionaire, you cannot pause it. All the best!
+          You can choose upto 2 domains. Once you start a questionaire, you
+          cannot pause it. All the best!
         </p>
       </div>
 
