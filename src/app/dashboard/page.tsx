@@ -242,7 +242,7 @@ export default function Dashboard() {
           />
         </div>
         <h2 className="text-base sm:text-lg md:text-2xl mb-1 font-semibold text-white font-sans-code">
-          That's CSI for you!
+          That&apos;s CSI for you!
         </h2>
         <p className="text-sm sm:text-base text-zinc-400 font-sans-code">
           Buckle up for some think tank period.

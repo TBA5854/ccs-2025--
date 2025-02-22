@@ -36,7 +36,10 @@ export default function ProfileCard({
 
       <ul className="flex sm:flex-col sm:gap-3 flex-row gap-2">
         {domains.map((domain) => (
-          <li className="text-center w-full border border-[#515254] rounded-[6px] bg-[#21262D] text-[#C9D1D9] py-1">
+          <li
+            key={domain}
+            className="text-center w-full border border-[#515254] rounded-[6px] bg-[#21262D] text-[#C9D1D9] py-1"
+          >
             {domain}
           </li>
         ))}
