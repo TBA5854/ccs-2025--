@@ -22,14 +22,15 @@ export default function Home() {
           quantity={750}
         />
       </div>
-      <div className="w-[130vw] md:w-[50vw] h-[20vh] md:h-[50vw] absolute top-[-25vh] md:top-[-25vw] left-[-20vw] md:left-[-25vw] bg-[rgba(185,184,239,0.44)] blur-[50px] md:blur-[250px] rounded-full z-[1000] pointer-events-none" />
-      <div className="hidden md:block w-[50vw] aspect-square absolute bottom-[-25vw] right-[-25vw]  bg-[#B9B8EF70] blur-[100px] md:blur-[250px] rounded-full z-[1000] pointer-events-none" />
+      <div className="w-[130vw] md:w-[50vw] h-[20vh] md:h-[50vw] absolute top-[-35vh] md:top-[-30vw] left-[-20vw] md:left-[-40vw] bg-[rgba(185,184,239,0.44)] blur-[50px] md:blur-[250px] rounded-full z-[1000] pointer-events-none" />
+      <div className="hidden md:block w-[50vw] aspect-square absolute bottom-[-40vw] right-[-30vw]  bg-[#B9B8EF70] blur-[100px] md:blur-[250px] rounded-full z-[1000] pointer-events-none" />
 
       <div className="relative min-h-screen flex flex-col justify-between">
         <div className="tab:p-4 mobile:p-2 flex flex-col">
           <nav className="flex flex-col sm:flex-row mobile:flex-row justify-end items-center gap-4 mb-6">
-            <div className="flex tab:items-center hidden">
-              <svg
+            <div className="flex tab:items-center">
+             <a href="https://github.com/csivitu">
+             <svg
                 height="48"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -41,6 +42,7 @@ export default function Home() {
               >
                 <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z" />
               </svg>
+             </a>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
