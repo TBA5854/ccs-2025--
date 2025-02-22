@@ -37,11 +37,11 @@ const DomainCard: FC<domainCardProps & { loading: boolean }> = ({
     } else if (dname === 'Tech') {
       return 'bg-[#477CFE]/20 text-[#C9D1D9] hover:bg-[#477CFE]'
     } else if (dname === 'Design') {
-      return 'bg-[#9747FF]/20 text-[#C9D1D9] hover:bg-[#9747FF]'
+      return 'bg-[#9747FF]/20 text-[#C9D1D9] hover:bg-[#9747FF90]'
     } else if (dname === 'Management') {
-      return 'bg-[#F5A10A]/20 text-[#C9D1D9] hover:bg-[#F5A10A]'
+      return 'bg-[#F5A10A]/20 text-[#C9D1D9] hover:bg-[#F5A10A95] '
     } else if (dname === 'Video') {
-      return 'bg-[#C93028]/20 text-[#C9D1D9] hover:bg-[#C93028]'
+      return 'bg-[#C93028]/20 text-[#C9D1D9] hover:bg-[#C9302890]'
     }
   }
 
@@ -77,7 +77,7 @@ const DomainCard: FC<domainCardProps & { loading: boolean }> = ({
           <button
             disabled={disabled}
             type="button"
-            className={`mt-4 py-1.5 px-5 w-full h-[40px] border border-[rgba(240,246,252,0.10)] rounded-[6px] transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-gray-400 text-[13px] font-sans font-medium leading-[20px] text-center
+            className={`mt-4 py-1.5 px-5 w-full min-h-[40px] h-fit border border-[rgba(240,246,252,0.10)] rounded-[6px] transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-gray-400 text-[13px] font-sans font-medium leading-[20px] text-center
               ${getButtonClasses(disabled, domainName)}`}
           >
             {buttonLabel}

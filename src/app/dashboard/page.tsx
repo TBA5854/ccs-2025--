@@ -153,10 +153,10 @@ export default function Dashboard() {
                   <SidebarGroupLabel className="text-[1rem] lg:text-[1.325rem] font-sans-code font-600">
                     Core Team
                   </SidebarGroupLabel>
-                  <div className="-mt-2 lg:mt-[-12px] ml-[-10px] grid grid-cols-6 gap-y-2 md:gap-y-1  lg:gap-2 p-4">
+                  <div className="-mt-2 lg:mt-[-12px] ml-[-10px] grid grid-cols-7 gap-y-2 md:gap-y-1  gap-x-2 lg:gap-2 p-4">
                     {teamData.map((member) => (
                       <div
-                        className="w-8 md:w-8 h-8 md:h-8 aspect-square rounded-full overflow-hidden"
+                        className="w-full h-auto aspect-square rounded-full  relative group"
                         key={member.alt}
                       >
                         <Image
@@ -164,8 +164,9 @@ export default function Dashboard() {
                           alt="Team Member"
                           width={56}
                           height={56}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover rounded-full"
                         />
+                        <span className='bg-black z-[1000] rounded-xl border border-white/50 px-3 py-1 text-xs absolute top-12 left-1/2 -translate-x-1/2 text-nowrap group-hover:block hidden'>{member.alt}</span>
                       </div>
                     ))}
                   </div>
