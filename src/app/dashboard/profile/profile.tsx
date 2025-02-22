@@ -55,7 +55,7 @@ const ProfileClient = (props: ProfileClientProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full h-screen">
-      <div className="w-[100%] md:w-[80%] mx-auto mt-[2em] md:mt-[4em]">
+      <div className="w-[100%] md:w-[80%] mx-auto mt-[1em] md:mt-[2em]">
         <div className="grid grid-cols-1 md:grid-cols-10 gap-8">
           {/* Left panel */}
           <div className="col-span-1 md:col-span-3 flex flex-row md:flex-col items-top md:items-center">
@@ -155,37 +155,58 @@ const ProfileClient = (props: ProfileClientProps) => {
                 </div>
               </div>
             ) : (
-              <div className="flex flex-row md:flex-col items-center">
+              <div className="w-[80%] mx-auto flex flex-row md:flex-col justify-left items-top">
                 <div>
                   {/* Display name here */}
-                  <h1 className="w-full text-[1rem] text-left font-semibold">
+                  <h1 className="w-full text-[1.5rem] text-left font-semibold">
                     {props.user.name}
                   </h1>
 
                   {/* Display pronouns here */}
-                  <span className="w-full text-[#9198A1] text-left">
+                  <span className="w-full text-[1rem] text-[#9198A1] text-left">
                     {props.user.name.split(' ')[0]}
                     {' · '}
                     {getPronouns(props.user.gender)}
                   </span>
                 </div>
+
+                <div className="hidden md:block w-full h-[1px] bg-[#30363D] my-4" />
+
+                {/* Display achievement badges here */}
+                <h2 className="hidden md:block text-[1rem] text-left font-semibold self-start mb-2">
+                  Achievements
+                </h2>
+                <div className="hidden md:flex flex-row justify-left items-left mobile:w-full gap-2">
+                  <div className="relative group">
+                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2">
+                      🦄
+                    </div>
+                    <div
+                      id="tooltip-unicorn"
+                      role="tooltip"
+                      className="absolute z-10 px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 shadow-xs opacity-0 group-hover:opacity-100 group-hover:visible tooltip dark:bg-gray-700"
+                    >
+                      Successful sign-up!
+                      <div className="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                  </div>
+                  <div className="relative group">
+                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2">
+                      😽
+                    </div>
+                    <div
+                      id="tooltip-cat"
+                      role="tooltip"
+                      className="absolute z-10 px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 shadow-xs opacity-0 group-hover:opacity-100 group-hover:visible tooltip dark:bg-gray-700"
+                    >
+                      Profile updated!
+                      <div className="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
-            {/* <div className="w-[302px] h-[1px] bg-[#30363D] my-4" /> */}
-            {/* <div className="flex flex-col justify-center items-center mobile:w-full gap-4">
-            <h2 className="w-full text-[1rem] text-left font-semibold">
-              Achievements
-            </h2>
-            <Image
-              src="/badge.webp"
-              alt="Achievement Badge"
-              width={70}
-              height={70}
-            />
-            <div className="border-[#1cec1c] border-[2px] rounded-full py-1 px-4 text-[12px] font-bold">
-              You chose CSI
-            </div>
-          </div> */}
+
             {/* <div className="w-[302px] h-[1px] bg-[#30363D] my-4" /> */}
             {/* <div className="flex flex-col gap-4 justify-center items-center">
             <h2 className="text-[20px] font-semibold self-start mx-12">
@@ -279,14 +300,10 @@ const ProfileClient = (props: ProfileClientProps) => {
                     ) : (
                       <>
                         {/* Display about section here */}
-                        <p className="mb-4">
+                        <p className="mb-4 break-words">
                           {props.user.aboutUs}
-                          {!props.user.aboutUs && (
-                            <span>
-                              Welcome to my profile! I am new to this website
-                              and will update this section soon.
-                            </span>
-                          )}
+                          {!props.user.aboutUs &&
+                            'Welcome to my profile! I am new to this website and will update this section soon.'}
                         </p>
 
                         {/* Display portfolio links here */}
