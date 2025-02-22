@@ -1,10 +1,12 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 import type { UserStats } from '../../actions/domains'
 import { titleCase } from '@/lib/utils'
 import { updateProfile } from '@/app/actions/profile'
 import { Gender, PortfolioCategory } from '@prisma/client'
+import { Card } from '@/components/ui/card'
 
 interface ProfileClientProps {
   user: UserStats
@@ -179,41 +181,49 @@ const ProfileClient = (props: ProfileClientProps) => {
     </form>
   )
 
+  const getPronouns = (gender: string | null) => {    
+    if (gender === "MALE") {
+      return "he/him"
+    }
+    else if (gender === "FEMALE") {
+      return "she/her"
+    }
+    return "they/them"
+  }
+
   return (
     <div className="container mx-auto py-8 px-4 flex-grow">
       <div className="grid grid-cols-1 md:grid-cols-10 gap-8">
+
+        {/* Left panel */}
         <div className="col-span-1 md:col-span-3 flex flex-col items-center">
-          <div className="mb-4 w-[290px] h-[290px] rounded-2xl overflow-hidden">
+          <div className="flex items-center justify-center mb-4 w-full h-fit rounded-2xl overflow-hidden">
             <Image
               src={props.image.length > 0 ? props.image : '/profile.webp'}
               alt="Raju Rastogi"
-              width={296}
-              height={296}
+              width={200}
+              height={200}
+              className='rounded-full'
             />
           </div>
           {isEditing ? (
             <EditForm />
           ) : (
-            <>
-              <h1 className="text-[25px] font-semibold self-start mx-12">
-                {props.user.name}
-              </h1>
-              <p className="text-[20px] mb-4 self-start mx-12">
-                {props.user.aboutUs}
-              </p>
-              <button
-                type="button"
-                onClick={() => setIsEditing(true)}
-                className="w-[296px] h-[32px] bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[18px] flex items-center justify-center my-5 py-3"
-              >
-                Edit profile
-              </button>
-            </>
-          )}
-          <div className="w-[302px] h-[1px] bg-[#30363D] my-4" />
+            <div className="flex flex-col items-center">
+              <div>
+                <h1 className="w-full text-[1rem] text-left font-semibold">
+                  {props.user.name}
+                </h1>
 
-          <div className="flex flex-col justify-center items-center mobile:w-full gap-4">
-            <h2 className="text-[20px] font-semibold self-start w-full text-center">
+                <span className='w-full text-[#9198A1] text-left'>
+                  {props.user.name.split(" ")[0]}{" · "}{getPronouns(props.user.gender)}
+                </span>
+              </div>
+            </div>
+          )}
+          {/* <div className="w-[302px] h-[1px] bg-[#30363D] my-4" /> */}
+          {/* <div className="flex flex-col justify-center items-center mobile:w-full gap-4">
+            <h2 className="w-full text-[1rem] text-left font-semibold">
               Achievements
             </h2>
             <Image
@@ -225,9 +235,9 @@ const ProfileClient = (props: ProfileClientProps) => {
             <div className="border-[#1cec1c] border-[2px] rounded-full py-1 px-4 text-[12px] font-bold">
               You chose CSI
             </div>
-          </div>
-          <div className="w-[302px] h-[1px] bg-[#30363D] my-4" />
-          <div className="flex flex-col gap-4 justify-center items-center">
+          </div> */}
+          {/* <div className="w-[302px] h-[1px] bg-[#30363D] my-4" /> */}
+          {/* <div className="flex flex-col gap-4 justify-center items-center">
             <h2 className="text-[20px] font-semibold self-start mx-12">
               Organizations
             </h2>
@@ -237,10 +247,93 @@ const ProfileClient = (props: ProfileClientProps) => {
               width={71}
               height={71}
             />
-          </div>
+          </div> */}
         </div>
 
-        <div className="col-span-1 md:col-span-7 text-left overflow-x-auto">
+        <main className="col-span-1 md:col-span-7 text-left overflow-x-auto">
+
+          {/* README.md panel */}
+          <Card className="border-[2px] border-[#30363D] rounded-[6px] bg-[#0D1117] max-w-full w-full mx-auto mb-8">
+            <div className="p-4 md:p-6 space-y-4 w-full">
+
+              {/* Topmost row of the block */}
+              <div className='flex flex-row justify-between'>
+                <span className="text-xs font-apro">
+                  {props.user.name.split(" ")[0]}
+                  <span className="text-[#9198A1]">{" / "}</span>
+                  {"README"}
+                  <span className="text-[#9198A1]">{".md"}</span>
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() => setIsEditing(true)}
+                >
+                  <span className="flex flex-row gap-1 text-xs font-apro underline">
+                    Edit profile
+                    <Image
+                      src="/icons/edit.svg"
+                      width={16}
+                      height={16}
+                      alt="Contribution Chart"
+                      className="rounded-t-[16px]"
+                    />
+                  </span>
+                </button>
+              </div>
+
+              {/* Actual customizable content of the block */}
+              <div>
+                <div className="w-full mx-auto text-xs md:text-[0.9rem] md:text-left font-sans-code leading-normal">
+                  <p className="mb-4">
+                    {props.user.aboutUs}
+                    {!props.user.aboutUs && 
+                      <span>
+                        Welcome to my profile! I am new to this website and will update this section soon.
+                      </span>
+                    }  
+                  </p>
+                  {props.user.portfolios &&
+                    <>
+                      <p className='mb-1'>
+                        These are some of my main projects:
+                      </p>
+                      <ul>
+                        {props.user.portfolios.map((portfolio, index) => (
+                          <li 
+                            key={portfolio.id}
+                            className='list-disc ml-8 underline'
+                          >
+                            <a href={portfolio.link}>{portfolio.link}</a>
+                          </li>
+                        ))}
+                      </ul>
+                  <p className="mt-4 lg:mt-8">
+                    Thanks for visiting! 😊
+                  </p>
+                  </>
+                }
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Contributors CSI-ART block here */}
+          <Card className="border-[2px] border-[#30363D] rounded-[6px] bg-[#0D1117] max-w-full w-full mx-auto mb-8">
+            <div>
+              <Image
+                src="/assets/contri.png"
+                width={878}
+                height={162}
+                alt="Contribution Chart"
+                className="rounded-t-[16px]"
+              />
+            </div>
+          </Card>
+        </main>
+
+
+        {/* <div className="col-span-1 md:col-span-7 text-left overflow-x-auto">
           <div className="mb-6">
             <Image
               src="/contri.webp"
@@ -280,7 +373,7 @@ const ProfileClient = (props: ProfileClientProps) => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
