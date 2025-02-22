@@ -25,7 +25,7 @@ export default async function DashboardLayout({
     !!user?.gender && !!user?.aboutUs && !!user?.phoneNumber
 
   return (
-    <div className="min-h-screen flex flex-col justify-start">
+    <div className="h-fit flex flex-col justify-start">
       <div className="w-full flex flex-col gap-0">
         <Navbar
           username={session?.user.name}
