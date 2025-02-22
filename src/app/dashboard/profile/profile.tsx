@@ -30,6 +30,9 @@ const ProfileClient = (props: ProfileClientProps) => {
     portfolios: props.user.portfolios || [],
   }))
 
+  const onboardingCompleted =
+    !!props.user?.gender && !!props.user?.aboutUs && !!props.user?.phoneNumber
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
@@ -225,6 +228,8 @@ const ProfileClient = (props: ProfileClientProps) => {
                       <div className="tooltip-arrow" data-popper-arrow></div>
                     </div>
                   </div>
+
+                  {onboardingCompleted &&
                   <div className="relative group">
                     <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2">
                       😽
@@ -238,6 +243,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                       <div className="tooltip-arrow" data-popper-arrow></div>
                     </div>
                   </div>
+                  }
                 </div>
               </div>
             )}
