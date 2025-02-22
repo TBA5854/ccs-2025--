@@ -107,23 +107,23 @@ export default function Dashboard() {
                   <h2 className="text-[1rem] lg:text-[1.325rem] text-white font-apro font-semibold">
                     README.md
                   </h2>
-                  <Image
-                    src="/csi-banner-min.gif"
-                    alt="Test Image"
-                    width={1000}
-                    height={600}
-                    className=" w-full h-auto"
-                    style={{ borderRadius: '5px' }}
-                  />
                   <div className="w-full md:w-4/5 mx-auto">
-                    <h1 className="text-base md:text-[1.5rem] my-8 font-medium text-center text-white font-sans-code">
+                    <h1 className="text-[1rem] md:text-[1.2rem] xl:text-[1.5rem] my-8 font-medium text-center text-white font-sans-code">
                       Computer Society of India - VIT University
                     </h1>
-                    <div className="w-full md:w-full mx-auto border-t-4 border-gray-800 my-4 mt-1 lg:mt-2 font-sans-code mb-6 md:mb-12" />
-                    <p className="text-sm md:text-[1rem]  font-semibold text-center text-white -mt-2 lg:mt-[-4px]">
+                    <Image
+                      src="/csi-banner-min.gif"
+                      alt="Test Image"
+                      width={1000}
+                      height={600}
+                      className=" w-full h-auto"
+                      style={{ borderRadius: '5px' }}
+                    />
+                    <div className="w-full md:w-full mx-auto border-t-4 border-gray-800 my-4 font-sans-code" />
+                    <p className="text-sm md:text-[1rem] font-semibold text-center text-white my-4 lg:my-8">
                       When we build, it matters.
-                    </p>
-                    <p className="mt-1 lg:mt-4 text-xs md:text-[0.9rem] text-justify md:text-left font-sans-code leading-normal">
+                    </p>                    
+                    <p className="my-4 lg:my-8 text-xs md:text-[0.9rem] text-justify md:text-left font-sans-code leading-normal">
                       We are the largest association of computer professionals
                       in India, composed of skilled designers, developers, and
                       tech enthusiasts. Our workshops, conferences, events, and
