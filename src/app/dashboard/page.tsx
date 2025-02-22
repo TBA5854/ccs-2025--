@@ -166,7 +166,9 @@ export default function Dashboard() {
                           height={56}
                           className="w-full h-full object-cover rounded-full"
                         />
-                        <span className='bg-black z-[1000] rounded-xl border border-white/50 px-3 py-1 text-xs absolute top-12 left-1/2 -translate-x-1/2 text-nowrap group-hover:block hidden'>{member.alt}</span>
+                        <span className="bg-black z-[1000] rounded-xl border border-white/50 px-3 py-1 text-xs absolute top-12 left-1/2 -translate-x-1/2 text-nowrap group-hover:block hidden">
+                          {member.alt}
+                        </span>
                       </div>
                     ))}
                   </div>
