@@ -13,7 +13,7 @@ export default function Home() {
   const { status } = useSession()
   return (
     <main
-      className="h-screen w-full bg-[#000000] relative overflow-hidden"
+      className="fixed top-0 h-screen w-full bg-[#000000] overflow-hidden"
       style={{ maxHeight: '100svh' }}
     >
       <div className="absolute inset-0">
