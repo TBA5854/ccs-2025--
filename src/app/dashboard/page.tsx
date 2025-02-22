@@ -179,19 +179,46 @@ export default function Dashboard() {
                     <SidebarGroupContent>
                       <div className="flex flex-wrap gap-1 md:gap-2 mt-2">
                         {[
-                          'ForkThis',
-                          'LaserTag',
-                          'DevSpace',
-                          'Riddler',
-                          'Init With CSI',
-                          'Byte Bistro',
-                          'CaSScade',
+
+                          {
+                            name: 'ForkThis',
+                            icon: '😺'
+                          },
+                          {
+                            name: 'LaserTag',
+                            icon: '🔫'
+                          },
+                          {
+                            name: 'DevSpace',
+                            icon: '🌌'
+                          },
+                          {
+                            name: 'Riddler',
+                            icon: '🧩'
+                          },
+                          {
+                            name: 'Init With CSI',
+                            icon: '🎓'
+                          },
+                          {
+                            name: 'Byte Bistro',
+                            icon: '🍷'
+                          },
+                          {
+                            name: 'CaSScade',
+                            icon: '🎭'
+                          },
+                          {
+                            name: 'BugeDéx',
+                            icon: '🐛'
+                          },
                         ].map((event) => (
                           <span
-                            key={event}
-                            className="rounded-[24px] bg-zinc-800 px-2 md:px-2 py-1 md:py-1.5 md:py-2 text-sm md:text-xs text-sans-code text-zinc-400"
-                          >
-                            {event}
+                            key={event.name}
+                            className="flex items-center gap-1 rounded-full bg-zinc-900 px-3 py-1 text-xs text-zinc-300"
+                            >
+                            {<span className='text-sm'>{event.icon}</span>}
+                            {event.name}
                           </span>
                         ))}
                       </div>
