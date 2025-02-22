@@ -55,11 +55,11 @@ const ProfileClient = (props: ProfileClientProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full h-screen">
-      <div className="w-[100%] md:w-[80%] mx-auto mt-[1em] md:mt-[2em]">
+      <div className="w-[100%] md:w-[88%] mx-auto mt-[1em] md:mt-[2em]">
         <div className="grid grid-cols-1 md:grid-cols-10 gap-8">
           {/* Left panel */}
-          <div className="col-span-1 md:col-span-3 flex flex-row md:flex-col items-top md:items-center">
-            <div className="w-[60px] md:w-full h-[60px] md:h-fit mx-4 mb-4 flex items-center justify-center rounded-2xl overflow-hidden">
+          <div className="col-span-1 md:col-span-3 flex flex-col items-top md:items-center">
+            <div className="w-[60px] md:w-[140px] h-[60px] md:h-fit mx-4 mb-4 hidden md:flex items-center justify-center rounded-2xl overflow-hidden">
               <Image
                 src={props.image.length > 0 ? props.image : '/profile.webp'}
                 alt="Raju Rastogi"
@@ -69,7 +69,7 @@ const ProfileClient = (props: ProfileClientProps) => {
               />
             </div>
             {isEditing ? (
-              <div className="space-y-4 mx-12 relative -left-8 md:left-0">
+              <div className="flex flex-col gap-2 mx-4">
                 {/* Enter display name here */}
                 <div>
                   <label
@@ -85,7 +85,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                     onChange={(e) =>
                       setFormData((prev) => ({ ...prev, name: e.target.value }))
                     }
-                    className="w-full h-fit text-sm bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
+                    className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
                     required
                   />
                 </div>
@@ -107,7 +107,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                         gender: e.target.value as Gender,
                       })
                     }
-                    className="w-full h-fit text-sm bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
+                    className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
                   >
                     <option value="">Select Gender</option>
                     {Object.values(Gender).map((gender) => (
@@ -133,7 +133,24 @@ const ProfileClient = (props: ProfileClientProps) => {
                     onChange={(e) =>
                       setFormData({ ...formData, phoneNumber: e.target.value })
                     }
-                    className="w-full h-fit text-sm bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
+                    className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
+                  />
+                </div>
+
+                {/* Enter phone number here */}
+                <div>
+                  <label
+                    htmlFor="portfolioLink"
+                    className="w-full text-xs text-left mb-2"
+                  >
+                    Portfolio Link
+                  </label>
+                  <input
+                    id="portfolioLink"
+                    type="tel"
+                    value={formData.portfolios[0].link}
+                    onChange={(e) => setFormData({ ...formData })}
+                    className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
                   />
                 </div>
 
@@ -155,7 +172,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                 </div>
               </div>
             ) : (
-              <div className="w-[80%] mx-auto flex flex-row md:flex-col justify-left items-top">
+              <div className="w-[88%] mx-auto flex flex-col justify-left items-top">
                 <div>
                   {/* Display name here */}
                   <h1 className="w-full text-[1.5rem] text-left font-semibold">
@@ -170,13 +187,26 @@ const ProfileClient = (props: ProfileClientProps) => {
                   </span>
                 </div>
 
-                <div className="hidden md:block w-full h-[1px] bg-[#30363D] my-4" />
+                <div className="w-full h-[1px] bg-[#30363D] my-4" />
+
+                {/* Display first portfolio link here */}
+                <h2 className="text-[1rem] text-left font-semibold self-start mb-2">
+                  Portfolio
+                </h2>
+                <div className="w-[88%] text-left text-xs">
+                  {'🔗 '}
+                  <span className="underline">
+                    {props.user.portfolios[0].link}
+                  </span>
+                </div>
+
+                <div className="w-full h-[1px] bg-[#30363D] my-4" />
 
                 {/* Display achievement badges here */}
-                <h2 className="hidden md:block text-[1rem] text-left font-semibold self-start mb-2">
+                <h2 className="text-[1rem] text-left font-semibold self-start mb-2">
                   Achievements
                 </h2>
-                <div className="hidden md:flex flex-row justify-left items-left mobile:w-full gap-2">
+                <div className="flex flex-row justify-left items-left mobile:w-full gap-2">
                   <div className="relative group">
                     <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2">
                       🦄
@@ -206,19 +236,6 @@ const ProfileClient = (props: ProfileClientProps) => {
                 </div>
               </div>
             )}
-
-            {/* <div className="w-[302px] h-[1px] bg-[#30363D] my-4" /> */}
-            {/* <div className="flex flex-col gap-4 justify-center items-center">
-            <h2 className="text-[20px] font-semibold self-start mx-12">
-              Organizations
-            </h2>
-            <Image
-              src="/org.webp"
-              alt="Organization Logo"
-              width={71}
-              height={71}
-            />
-          </div> */}
           </div>
 
           <main className="col-span-1 md:col-span-7 text-left overflow-x-auto">
@@ -274,59 +291,15 @@ const ProfileClient = (props: ProfileClientProps) => {
                             rows={3}
                           />
                         </div>
-
-                        {/* Enter portfolio links here */}
-                        <div>
-                          <label
-                            htmlFor="aboutUs"
-                            className="w-full text-xs text-left mb-2"
-                          >
-                            Links
-                          </label>
-                          <textarea
-                            id="aboutUs"
-                            value={formData.aboutUs}
-                            onChange={(e) =>
-                              setFormData({
-                                ...formData,
-                                aboutUs: e.target.value,
-                              })
-                            }
-                            className="w-full bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] px-3 py-2"
-                            rows={3}
-                          />
-                        </div>
                       </>
                     ) : (
                       <>
                         {/* Display about section here */}
-                        <p className="mb-4 break-words">
+                        <p className="mb-4 min-h-[120px] break-words">
                           {props.user.aboutUs}
                           {!props.user.aboutUs &&
-                            'Welcome to my profile! I am new to this website and will update this section soon.'}
+                            'Welcome to my profile! I am new to this website and will update this section soon. Thanks for visiting! 😊'}
                         </p>
-
-                        {/* Display portfolio links here */}
-                        {props.user.portfolios && (
-                          <>
-                            <p className="mb-1">
-                              These are some of my main projects:
-                            </p>
-                            <ul>
-                              {props.user.portfolios.map((portfolio, index) => (
-                                <li
-                                  key={portfolio.id}
-                                  className="list-disc ml-8 underline"
-                                >
-                                  <a href={portfolio.link}>{portfolio.link}</a>
-                                </li>
-                              ))}
-                            </ul>
-                            <p className="mt-4 lg:mt-8">
-                              Thanks for visiting! 😊
-                            </p>
-                          </>
-                        )}
                       </>
                     )}
                   </div>
@@ -369,48 +342,6 @@ const ProfileClient = (props: ProfileClientProps) => {
               <></>
             )}
           </main>
-
-          {/* <div className="col-span-1 md:col-span-7 text-left overflow-x-auto">
-          <div className="mb-6">
-            <Image
-              src="/contri.webp"
-              width={878}
-              height={162}
-              alt="Contribution Chart"
-              className="rounded-t-[10px] mobile:hidden tab:block"
-            />
-          </div>
-          <div className="mb-2">
-            <h3 className="text-[20px] font-semibold">Contribution activity</h3>
-            <div className="flex items-center mt-1">
-              <span className="text-[18px]">{formattedDate}</span>
-              <div className="w-[302px] h-[1px] bg-[#30363D] my-4" />
-            </div>
-          </div>
-          <div className="flex items-start mb-6">
-            <Image
-              src="/side.webp"
-              width={32}
-              height={325}
-              alt="Side Image"
-              className="hidden md:block mr-4"
-            />
-            <div>
-              {props.user.attemptedDomains.map((domain, idx) => (
-                <div key={domain.id} className="mb-12">
-                  <div className="flex items-center mb-2 mt-4">
-                    <h4 className="text-[18px] ">
-                      Questions completed in {titleCase(domain?.domain)} Domain
-                    </h4>
-                    <div className="w-[55px] h-[22px] border border-[#C9D1D9] rounded-full flex items-center justify-center text-[14px] ml-2 py-1 px-[1rem]">
-                      Public
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
         </div>
       </div>
     </form>
