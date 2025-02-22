@@ -21,8 +21,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${notoSans.className} bg-zinc-950`}>
+    <html
+      lang="en"
+      className="lg:no-scrollbar lg:no-scrollbar::-webkit-scrollbar"
+    >
+      <body
+        className={`${notoSans.className} bg-zinc-950 mt-[3em] lg:mt-[4em]`}
+      >
         <AuthProvider>{children}</AuthProvider>
         <Toaster />
       </body>
