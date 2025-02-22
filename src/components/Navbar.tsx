@@ -138,11 +138,14 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 
           {/* Profile icon & round one alert */}
           <div className="hidden lg:flex flex-row items-center justify-content-center">
-            <div className="hidden lg:flex font-apro font-semibold text-nowrap border-[1px] border-white/50 bg-black text-white px-8 py-2 rounded-[0.5rem] mr-4 shadow-[0px_0px_8px_#ffffff80] text-xs md:text-sm">
+            <Link
+              href={'/dashboard/domains'}
+              className="hidden lg:flex font-apro font-semibold text-nowrap border-[1px] border-white/50 bg-black hover:bg-[#47b562] text-white px-8 py-2 rounded-[0.5rem] mr-4 shadow-[0px_0px_8px_#ffffff80] text-xs md:text-sm"
+            >
               <span className="animate-pulse duration-[800]">
                 Round 1 is Live!
               </span>
-            </div>
+            </Link>
             <Link
               href="/dashboard/profile"
               className="rounded-[0.25rem] overflow-hidden"
