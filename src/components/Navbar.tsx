@@ -164,7 +164,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 
       {/* Mobile Navbar */}
       <div
-        className={`sm:hidden fixed top-0 left-0 w-2/3 h-screen bg-zinc-950 z-50 
+        className={`lg:hidden fixed top-0 left-0 w-2/3 h-screen bg-zinc-950 z-50 
           transform transition-transform duration-300 ease-in-out
           border-r-[1px] border-t-[1px] border-b-[1px] rounded-r-xl border-slate-600
           ${isNavbarOpen ? 'translate-x-0' : '-translate-x-full'}
@@ -215,7 +215,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
       {/* Mobile Background Overlay */}
       {isNavbarOpen && (
         <div
-          className="sm:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
           onClick={handleToggleNavbar}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
