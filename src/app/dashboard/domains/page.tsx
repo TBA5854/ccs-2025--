@@ -4,11 +4,10 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import DomainCard from '@/components/domain-page/domainCard'
 import type { domainCardProps } from '@/types/domain-card-props'
-import techLogo from 'public/logos/techLogo.svg'
-import designLogo from 'public/logos/designLogo.svg'
-import videoLogo from 'public/logos/videoLogo.svg'
-import managementLogo from 'public/logos/managementLogo.svg'
-import csiLogo from 'public/logos/csiLogoOnDark.svg'
+import techLogo from 'public/icons/puzzle_tech.svg'
+import designLogo from 'public/icons/puzzle_design.svg'
+import videoLogo from 'public/icons/puzzle_video.svg'
+import managementLogo from 'public/icons/puzzle_management.svg'
 import { getAttemptedDomains } from '@/app/actions/domains'
 import type { AttemptedDomain } from '@prisma/client'
 import { DomainStatus } from '@/types/domain-card-props'
@@ -67,23 +66,10 @@ export default function DomainsPage() {
       domainName: 'Tech',
       domainIcon: techLogo,
       description:
-        'Development, data science, blockchain, cybersecurity and more! We discuss the latest trends in tech and create ground-breaking solutions. Those who dare enter, suffer from sleepless nights resolving merge conflicts.',
+        'Development, data science, cybersecurity and more! We discuss the latest trends in tech and create ground-breaking solutions. Those who dare enter, suffer from sleepless nights resolving merge conflicts.',
       status: getDomainStatus('TECH'),
       get buttonLabel() {
         return getButtonLabel(this.status, "Let's Start Coding")
-      },
-      get disabled() {
-        return isDisabled(this.status)
-      },
-    },
-    {
-      domainName: 'Design',
-      domainIcon: designLogo,
-      description:
-        'Master UI/UX, branding, and digital art to create stunning visuals that leave a lasting impact. If you choose to dive into design, you will learn to make things look good (without losing your mind).',
-      status: getDomainStatus('DESIGN'),
-      get buttonLabel() {
-        return getButtonLabel(this.status, 'Dive Into Design')
       },
       get disabled() {
         return isDisabled(this.status)
@@ -97,6 +83,19 @@ export default function DomainsPage() {
       status: getDomainStatus('MANAGEMENT'),
       get buttonLabel() {
         return getButtonLabel(this.status, 'Get those finances right')
+      },
+      get disabled() {
+        return isDisabled(this.status)
+      },
+    },
+    {
+      domainName: 'Design',
+      domainIcon: designLogo,
+      description:
+        'Master UI/UX, branding, and digital art to create stunning visuals that leave a lasting impact. If you choose to dive into design, you will learn to make things look good (without losing your mind).',
+      status: getDomainStatus('DESIGN'),
+      get buttonLabel() {
+        return getButtonLabel(this.status, 'Dive Into Design')
       },
       get disabled() {
         return isDisabled(this.status)
