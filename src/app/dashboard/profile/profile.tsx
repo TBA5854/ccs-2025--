@@ -21,6 +21,7 @@ const ProfileClient = (props: ProfileClientProps) => {
   })
 
   const [isEditing, setIsEditing] = useState(false)
+  const [plink, setPlink] = useState('')
   const [formData, setFormData] = useState(() => ({
     name: props.user.name,
     aboutUs: props.user.aboutUs || '',
@@ -137,7 +138,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                   />
                 </div>
 
-                {/* Enter phone number here */}
+                {/* Enter portfolio link here */}
                 <div>
                   <label
                     htmlFor="portfolioLink"
@@ -149,7 +150,11 @@ const ProfileClient = (props: ProfileClientProps) => {
                     id="portfolioLink"
                     type="tel"
                     value={formData.portfolios[0].link}
-                    onChange={(e) => setFormData({ ...formData })}
+                    onChange={(e) => {
+                      setPlink(e.target.value)
+                      formData.portfolios[0].link = e.target.value
+                      console.log(plink)
+                    }}
                     className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
                   />
                 </div>
