@@ -66,12 +66,12 @@ export const projects = [
     repoLink: 'https://github.com/csivitu/code-executor',
     authorLink: '',
   },
-  // {
-  //   projectTitle: 'evie',
-  //   projectDescription: 'A Calendar website made for VIT Club events.',
-  //   language: Languages.JAVASCRIPT,
-  //   builtBy: 'Sanjay Kumar Baskaran, Mannan Goyal',
-  //   repoLink: 'https://github.com/csivitu/Evie-Frontend',
-  //   authorLink: '',
-  // },
+  {
+    projectTitle: 'evie',
+    projectDescription: 'A Calendar website made for VIT Club events.',
+    language: Languages.JAVASCRIPT,
+    builtBy: 'Sanjay Kumar Baskaran, Mannan Goyal',
+    repoLink: 'https://github.com/csivitu/Evie-Frontend',
+    authorLink: '',
+  },
 ]
