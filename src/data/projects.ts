@@ -77,7 +77,7 @@ export const projects = [
   },
   {
     projectTitle: 'fileshare',
-    projectDescription: 'a decentralized blockchain based file sharing system.',
+    projectDescription: 'A decentralized blockchain based file sharing system.',
     language: Languages.TYPESCRIPT,
     builtBy: 'Manas Laud',
     repoLink: 'https://github.com/manaslaud/FileShare',
