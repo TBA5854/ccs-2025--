@@ -17,7 +17,7 @@ export default function AnswerPanel({
       {/* Fixed Header */}
       <div className="md:fixed md:top-12 lg:top-14 md:right-0 md:w-[60%] flex items-center md:border-b-4 md:border-l-2 md:border-gray-800 md:border-l-[#3C444C] bg-[#09090B] pt-2 z-50">
         <Image
-          src="/ts.svg"
+          src="/logos/typescript.svg"
           className="mr-2 ml-3 "
           alt="TypeScript Image"
           width={22}

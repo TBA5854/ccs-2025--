@@ -162,12 +162,7 @@ export default function QuestionsPage({
 
             {/* On tabs & desktop */}
             <div className={`hidden md:flex`}>
-              <QuestionPanel
-                question={questions[currentIndex].question}
-                // Icon={() => (
-                // <Image src="/md.svg" alt="Markdown Icon" height={128} width={128} />
-                // )}
-              />
+              <QuestionPanel question={questions[currentIndex].question} />
             </div>
           </div>
 
@@ -242,7 +237,9 @@ export default function QuestionsPage({
               disabled={currentIndex === 0}
               type="button"
             >
-              &lt;&lt; Prev
+              <div className="flex flex-row">
+                <span className="hidden lg:block">{'<<'}</span>&nbsp;{'Prev'}
+              </div>
             </button>
 
             <button
@@ -259,9 +256,13 @@ export default function QuestionsPage({
               }
               type="button"
             >
-              {currentIndex === questions.length - 1
-                ? 'Finish Quiz'
-                : 'Next >>'}
+              {currentIndex === questions.length - 1 ? (
+                'Finish Quiz'
+              ) : (
+                <div className="flex flex-row">
+                  {'Next'}&nbsp;<span className="hidden lg:block">{'>>'}</span>
+                </div>
+              )}
             </button>
           </div>
         </div>

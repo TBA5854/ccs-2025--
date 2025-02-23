@@ -27,7 +27,7 @@ export default function TextEditor({
   }, [answers[currentIndex]])
 
   return (
-    <div className="flex w-full md:pt-10">
+    <div className="flex w-full md:pt-4">
       <div
         ref={lineNumbersRef}
         className="text-right px-2 py-2 text-gray-500 min-w-[40px] "
