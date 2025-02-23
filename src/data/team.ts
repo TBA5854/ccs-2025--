@@ -1,6 +1,6 @@
 export const teamData = [
   {
-    src: 'https://i.ibb.co/dsTgDh9g/aryan.jpg',
+    src: 'https://ibb.co/4gwSkC08',
     alt: 'Narang',
   },
   {
