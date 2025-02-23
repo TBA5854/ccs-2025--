@@ -13,9 +13,9 @@ export default function AnswerPanel({
   topPosition: number
 }) {
   return (
-    <div className="ml-3 md:ml-0 md:absolute md:top-[2em] md:right-0 md:w-[60%] md:min-h-screen h-auto md:border-l-2 border-[#3C444C]">
+    <div className="ml-3 md:ml-0 md:absolute md:top-[2em] md:right-0 w-[80%] md:w-[60%] md:min-h-screen h-auto md:border-l-2 border-[#3C444C]">
       {/* Fixed Header */}
-      <div className="md:fixed md:top-12 lg:top-14 md:right-0 md:w-[60%] flex items-center md:border-b-4 md:border-l-2 md:border-gray-800 md:border-l-[#3C444C] bg-[#09090B] pt-2 z-50">
+      <div className="md:fixed md:top-12 lg:top-14 md:right-0 w-[80%] md:w-[60%] flex items-center md:border-b-4 md:border-l-2 md:border-gray-800 md:border-l-[#3C444C] bg-[#09090B] pt-2 z-50">
         <Image
           src="/logos/typescript.svg"
           className="mr-2 ml-3 "

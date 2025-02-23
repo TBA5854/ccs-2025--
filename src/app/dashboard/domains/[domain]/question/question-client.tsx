@@ -166,10 +166,12 @@ export default function QuestionsPage({
             </div>
           </div>
 
+          <hr className="md:hidden w-4/5 mx-auto border-[#3C444C] border-2 border-dashed" />
+
           {/* Answer Panel here */}
-          <div className="w-fit">
+          <div className="w-fit h-fit mobile:w-screen">
             {/* On mobile */}
-            <div className="md:hidden md:mb-4 min-h-[150px] max-h-[300px] overflow-y-auto">
+            <div className="md:hidden md:mb-4 md:min-h-[150px] max-h-[300px] overflow-y-auto mobile:w-full mobile:h-fit">
               <AnswerPanel
                 currentIndex={currentIndex}
                 answers={answers}

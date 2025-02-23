@@ -54,7 +54,7 @@ export default function TextEditor({
             ).scrollTop
           }
         }}
-        className="flex-1 p-2 outline-none  font-mono resize-none bg-inherit"
+        className="flex-1 p-2 outline-none w-full font-mono resize-none bg-inherit"
         style={{
           lineHeight: '1.5rem',
           whiteSpace: 'pre-wrap',

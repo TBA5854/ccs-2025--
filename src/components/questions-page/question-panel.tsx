@@ -2,7 +2,7 @@ import { RiArrowDropDownLine, RiMarkdownLine } from 'react-icons/ri'
 import Image from 'next/image'
 export default function QuestionPanel({ question }: { question: string }) {
   return (
-    <div className="md:absolute md:top-[2em] md:left-12 md:w-[40%] md:min-h-screen h-auto">
+    <div className="md:absolute md:top-[2em] md:left-12 md:w-[40%] md:min-h-screen h-fit">
       {/* Fixed Header */}
       <div className="hidden md:flex md:fixed md:top-12 lg:top-14 md:left-12 md:w-[40%] items-center md:border-b-4 md:border-gray-800 bg-[#09090B] pt-2 z-50">
         <Image
