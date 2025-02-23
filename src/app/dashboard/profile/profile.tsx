@@ -8,6 +8,7 @@ import { Gender, PortfolioCategory } from '@prisma/client'
 import { Card } from '@/components/ui/card'
 import type { AttemptedDomain } from '@prisma/client'
 import { getAttemptedDomains } from '@/app/actions/domains'
+import { UpdateProfileData } from '@/app/actions/profile'
 
 interface ProfileClientProps {
   user: UserStats
@@ -203,43 +204,56 @@ const ProfileClient = (props: ProfileClientProps) => {
                 </div>
               </div>
             ) : (
-              <div className="w-[88%] mx-auto flex flex-col justify-left items-top">
-                <div className="flex flex-row">
+              <div className="w-[88%] mx-auto flex flex-col items-center lg:items-start">
+                <div className="w-full flex flex-row items-center gap-4 md:flex-col md:items-center lg:items-start mb-4">
                   <Image
                     src={props.image.length > 0 ? props.image : '/profile.webp'}
-                    alt="Raju Rastogi"
-                    width={60}
-                    height={60}
-                    className="hidden lg:block rounded-full mr-4"
+                    alt={props.user.name}
+                    width={260}
+                    height={260}
+                    className="w-24 h-24 md:w-[260px] md:h-[260px] rounded-full border-2 border-[#30363D]"
                   />
-                  <div>
-                    {/* Display name here */}
-                    <h1 className="w-full text-[1.5rem] text-left font-semibold">
+
+                  {/* User Details - aligned right on mobile */}
+                  <div className="flex flex-col text-left md:text-center lg:text-left md:mt-4">
+                    <h1 className="text-xl md:text-[1.5rem] font-semibold">
                       {props.user.name}
                     </h1>
-
-                    {/* Display pronouns here */}
-                    <span className="w-full text-[1rem] text-[#9198A1] text-left">
-                      {props.user.name.split(' ')[0]}
-                      {' · '}
+                    <span className="text-sm md:text-[1rem] text-[#9198A1]">
+                      {props.user.name.split(' ')[0]} {' · '}{' '}
                       {getPronouns(props.user.gender)}
                     </span>
                   </div>
                 </div>
-                <div className="w-full h-[1px] bg-[#30363D] my-4" />
+
+                {/* <div className="w-full h-[1px] bg-[#30363D] my-4" /> */}
 
                 {/* Display first portfolio link here */}
-                <h2 className="text-[1rem] text-left font-semibold self-start mb-2">
+                {/* <h2 className="text-[1rem] text-left font-semibold self-start mb-2">
                   Portfolio
-                </h2>
-                <div className="w-[88%] text-left text-xs">
-                  {'🔗 '}
-                  <span className="underline">
-                    {props.user.portfolios[0].link}
-                  </span>
-                </div>
+                </h2> */}
 
+                {props.user.portfolios.length > 0 && (
+                  <div className="w-[88%] text-left text-xs">
+                    {'🔗 '}
+                    <span className="underline">
+                      {props.user.portfolios[0].link}
+                    </span>
+                  </div>
+                )}
                 <div className="w-full h-[1px] bg-[#30363D] my-4" />
+
+                {!isEditing && (
+                  <div className="flex py-2 items-center justify-left w-full">
+                    <div className="hidden md:flex w-full flex-col gap-2 pt-0 mb-1">
+                      <button type="button" onClick={() => setIsEditing(true)}>
+                        <span className="hidden md:flex flex-row items-center justify-center gap-1 bg-[#21262D] w-[96%] px-2 py-1 border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]">
+                          Update your profile
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                )}
 
                 {/* Display achievement badges here */}
                 <h2 className="text-[1rem] text-left font-semibold self-start mb-2">
@@ -280,23 +294,11 @@ const ProfileClient = (props: ProfileClientProps) => {
                     </div>
                   )}
                 </div>
-
-                {!isEditing && (
-                  <div className="flex py-4 items-center justify-left">
-                    <div className="hidden md:flex w-full flex-col gap-2 pt-2 mb-4">
-                      <button type="button" onClick={() => setIsEditing(true)}>
-                        <span className="hidden md:flex flex-row items-center justify-center gap-1 bg-[#21262D] w-[92%] px-2 py-1 border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]">
-                          Update your profile
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                )}
               </div>
             )}
           </div>
 
-          <main className="col-span-1 md:col-span-7 text-left overflow-x-auto">
+          <main className="col-span-1 md:col-span-7 text-left overflow-x-auto m-4">
             {/* README.md panel */}
             <Card className="border-0 md:border-[2px] border-[#30363D] rounded-0 md:rounded-[6px] bg-[#0D1117] max-w-full w-[92%] md:w-full mx-auto mb-8">
               <div className="p-4 md:p-6 space-y-4">
