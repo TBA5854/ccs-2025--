@@ -122,7 +122,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
                   item.id === 'project' ||
                   item.id === 'alumni') && (
                   <div
-                    className="w-[24px] h-[24px] flex items-center justify-center rounded-full bg-[rgba(110,118,129,0.4)] 
+                    className="w-[28px] h-[28px] flex items-center justify-center rounded-full bg-[rgba(110,118,129,0.4)] 
                               text-[#C9D1D9] text-[12px] font-[500] leading-[18px] font-['Noto_Sans'] text-center "
                   >
                     {item.id === 'domains'
