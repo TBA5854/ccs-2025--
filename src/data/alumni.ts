@@ -16,7 +16,7 @@ export const alumniData = [
     src: 'https://i.ibb.co/vWNHQB0/tw.jpg',
   },
   {
-    name: 'Bhavee',
+    name: 'Bhavvya Sarna',
     expertise: 'Data science and machine learning god',
     company: 'Motorq',
     linkedin: 'https://www.linkedin.com/in/bhaveesarna/',
