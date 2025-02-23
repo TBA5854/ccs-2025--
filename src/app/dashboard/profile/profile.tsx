@@ -262,18 +262,20 @@ const ProfileClient = (props: ProfileClientProps) => {
                     <span className="text-[#9198A1]">{'.md'}</span>
                   </span>
 
-                  <button type="button" onClick={() => setIsEditing(true)}>
-                    <span className="flex flex-row gap-1 text-xs font-apro underline">
-                      Edit profile
-                      <Image
-                        src="/icons/edit.svg"
-                        width={16}
-                        height={16}
-                        alt="Contribution Chart"
-                        className="rounded-t-[16px]"
-                      />
-                    </span>
-                  </button>
+                  {!isEditing && 
+                    <button type="button" onClick={() => setIsEditing(true)}>
+                      <span className="flex flex-row gap-1 text-xs font-apro underline">
+                        Edit profile
+                        <Image
+                          src="/icons/edit.svg"
+                          width={16}
+                          height={16}
+                          alt="Contribution Chart"
+                          className="rounded-t-[16px]"
+                        />
+                      </span>
+                    </button>
+                  }
                 </div>
 
                 {/* Actual customizable content of the block */}
