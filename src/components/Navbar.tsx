@@ -180,8 +180,11 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
           </button>
 
           <nav className="space-y-6 mb-auto">
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-row gap-2 mb-2 items-center font-light">
+            <Link href="/dashboard/profile" className="flex flex-col gap-2">
+              <button
+                onClick={() => setIsNavbarOpen(false)}
+                className="flex flex-row gap-2 mb-2 items-center font-light"
+              >
                 <Image
                   src={image.length > 0 ? image : '/git.webp'}
                   width={50}
@@ -189,10 +192,9 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
                   alt="FAQs Icon"
                   className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto"
                 />
-                {/* TODO@jrs : Replace with the actual username and photograph */}
                 <span className="ml-2">{username}</span>
-              </div>
-            </div>
+              </button>
+            </Link>
 
             <div className="w-full flex flex-col gap-2">
               {navLinks.map((item) => (
