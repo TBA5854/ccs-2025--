@@ -44,7 +44,7 @@ const AlumniPage = () => {
                         alt={person.name}
                         width={200}
                         height={200}
-                        className="w-[60px] h-[60px] lg:h-[75px] lg:w-[75px] aspect-square"
+                        className="w-[60px] h-[60px] lg:h-[75px] lg:w-[75px] aspect-square rounded-full"
                       />
                       <div>
                         <div className="flex-grow relative">
