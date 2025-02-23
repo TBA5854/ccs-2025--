@@ -77,7 +77,9 @@ const ProjectPage = () => {
                 <div
                   key={project.projectTitle}
                   className={`p-2 lg:p-3 relative border-gray-700 ${
-                    index !== projects.length-1 ? 'border-b-2 lg:border-b-3 w-full' : ''
+                    index !== projects.length - 1
+                      ? 'border-b-2 lg:border-b-3 w-full'
+                      : ''
                   }`}
                 >
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-2 lg:gap-3">
@@ -114,6 +116,11 @@ const ProjectPage = () => {
                           <span className="text-[12px] text-[#8B949E] font-sans-code">
                             {project.language}
                           </span>
+                        </div>
+
+                        {/* project type */}
+                        <div className="flex items-center text-[12px] text-[#8B949E] font-sans-code">
+                          <span>{project.type}</span>
                         </div>
 
                         {/* project author */}
