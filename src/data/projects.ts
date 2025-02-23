@@ -31,7 +31,7 @@ export const projects = [
     projectDescription:
       'The project repository for this website, built as a collaborative effort.',
     language: Languages.JAVASCRIPT,
-    builtBy: 'Yug Oswal',
+    builtBy: 'Everyone',
     repoLink: 'https://github.com/csivitu/ccs-2025',
     authorLink: 'https://github.com/csivitu',
     type: '🌏 site',
@@ -77,7 +77,7 @@ export const projects = [
   },
   {
     projectTitle: 'fileshare',
-    projectDescription: 'a decentralized blockchain based file sharing system.',
+    projectDescription: 'A decentralized blockchain based file sharing system.',
     language: Languages.TYPESCRIPT,
     builtBy: 'Manas Laud',
     repoLink: 'https://github.com/manaslaud/FileShare',

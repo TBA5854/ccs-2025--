@@ -9,10 +9,16 @@ import { Card } from '@/components/ui/card'
 import type { AttemptedDomain } from '@prisma/client'
 import { getAttemptedDomains } from '@/app/actions/domains'
 import { UpdateProfileData } from '@/app/actions/profile'
+import PortfolioSection from './edit-profile'
 
 interface ProfileClientProps {
   user: UserStats
   image: string
+}
+
+interface Portfolio {
+  category: PortfolioCategory
+  link: string
 }
 
 const ProfileClient = (props: ProfileClientProps) => {
@@ -165,7 +171,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                 </div>
 
                 {/* Enter portfolio link here */}
-                <div>
+                {/* <div>
                   <label
                     htmlFor="portfolioLink"
                     className="w-full text-xs text-left mb-2"
@@ -184,7 +190,19 @@ const ProfileClient = (props: ProfileClientProps) => {
                     className="w-full h-fit text-xs bg-transparent placeholder:text-zinc-400 text-zinc-400 text-sm border border-zinc-800 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zinc-400 shadow-sm focus:shadow"
                     placeholder="Type here..."
                   />
-                </div>
+                </div> */}
+
+                <PortfolioSection
+                  isEditing={isEditing}
+                  portfolios={formData.portfolios}
+                  onPortfolioChange={(newPortfolios: any) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      portfolios: newPortfolios,
+                    }))
+                  }
+                />
+                <div className="w-full h-[1px] bg-[#30363D] my-4" />
 
                 {/* Save and cancel buttons here */}
                 <div className="hidden md:flex gap-2 pt-2">
@@ -226,21 +244,21 @@ const ProfileClient = (props: ProfileClientProps) => {
                   </div>
                 </div>
 
-                {/* <div className="w-full h-[1px] bg-[#30363D] my-4" /> */}
+                <div className="w-full h-[1px] bg-[#30363D] my-4" />
 
-                {/* Display first portfolio link here */}
-                {/* <h2 className="text-[1rem] text-left font-semibold self-start mb-2">
+                <h2 className="text-[1rem] text-left font-semibold self-start mb-2">
                   Portfolio
-                </h2> */}
-
-                {props.user.portfolios.length > 0 && (
-                  <div className="w-[88%] text-left text-xs">
-                    {'🔗 '}
-                    <span className="underline">
-                      {props.user.portfolios[0].link}
-                    </span>
-                  </div>
-                )}
+                </h2>
+                <PortfolioSection
+                  isEditing={isEditing}
+                  portfolios={formData.portfolios}
+                  onPortfolioChange={(newPortfolios: any) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      portfolios: newPortfolios,
+                    }))
+                  }
+                />
                 <div className="w-full h-[1px] bg-[#30363D] my-4" />
 
                 {!isEditing && (

@@ -31,17 +31,17 @@ export default async function QuestionsListing({
     throw response.error
   }
 
+  if (response.data?.isCompleted) {
+    redirect('/dashboard/domains?completed=true')
+  }
+
   if (
     !response.data.questions ||
     !response.data.answers ||
     !response.data.sessionId
   ) {
     console.error('Missing required data in response')
-    throw new Error('Missing required data in response')
-  }
-
-  if (response.data?.isCompleted) {
-    redirect('/dashboard/domains?completed=true')
+    redirect('/dashboard/domains?error=internalError')
   }
 
   return (
