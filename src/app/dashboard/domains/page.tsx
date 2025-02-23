@@ -57,10 +57,12 @@ export default function DomainsPage() {
   }
 
   const isDisabled = (status: DomainStatus): boolean => {
+    const activeOrCompletedDomains = selectedDomains.filter(
+      (domain) => domain.submitted || !domain.submitted,
+    ).length
     return (
       status === DomainStatus.COMPLETED ||
-      (selectedDomains.filter((d) => !d.submitted).length >=
-        MAX_DOMAIN_ATTEMPTS &&
+      (activeOrCompletedDomains >= MAX_DOMAIN_ATTEMPTS &&
         status === DomainStatus.NOT_STARTED)
     )
   }
