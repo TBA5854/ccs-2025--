@@ -130,6 +130,12 @@ export default function DomainsPage() {
           message="You have already selected two domains. You cannot select more than two domains."
         />
       )}
+      {error === 'internalError' && (
+        <ErrorBanner
+          title="Some error occured"
+          message="Please try again later"
+        />
+      )}
       <main className="flex-1 px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex flex-col items-center gap-4 sm:gap-6 text-center mt-[2em] md:mt-[4em] md:mb-[2em]">
           <h1 className="text-white font-sans-code text-lg lg:text-2xl font-semibold leading-normal sm:leading-relaxed px-2">
