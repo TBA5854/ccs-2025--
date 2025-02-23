@@ -43,10 +43,10 @@ export default function DomainsPage() {
     defaultLabel: string,
   ): string => {
     switch (status) {
-      // case DomainStatus.IN_PROGRESS:
-      //   return 'Continue Test'
-      // case DomainStatus.COMPLETED:
-      //   return 'Test Finished'
+      case DomainStatus.IN_PROGRESS:
+        return 'Continue Test'
+      case DomainStatus.COMPLETED:
+        return 'Test Finished'
       default:
         return defaultLabel
     }
