@@ -63,7 +63,7 @@ const ProfileClient = (props: ProfileClientProps) => {
         <div className="grid grid-cols-1 md:grid-cols-10 gap-8">
           {/* Left panel */}
           <div className="col-span-1 md:col-span-3 flex flex-col items-top md:items-center">
-            <div className="w-[60px] md:w-[140px] h-[60px] md:h-fit mx-4 mb-4 hidden md:flex items-center justify-center rounded-2xl overflow-hidden">
+            {/* <div className="w-[60px] md:w-[140px] h-[60px] md:h-fit mx-4 mb-4 hidden md:flex items-center justify-center rounded-2xl overflow-hidden">
               <Image
                 src={props.image.length > 0 ? props.image : '/profile.webp'}
                 alt="Raju Rastogi"
@@ -71,7 +71,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                 height={200}
                 className="rounded-full"
               />
-            </div>
+            </div> */}
             {isEditing ? (
               <div className="flex flex-col gap-2 mx-4">
                 {/* Enter display name here */}
@@ -181,20 +181,28 @@ const ProfileClient = (props: ProfileClientProps) => {
               </div>
             ) : (
               <div className="w-[88%] mx-auto flex flex-col justify-left items-top">
-                <div>
-                  {/* Display name here */}
-                  <h1 className="w-full text-[1.5rem] text-left font-semibold">
-                    {props.user.name}
-                  </h1>
+                <div className="flex flex-row">
+                  <Image
+                    src={props.image.length > 0 ? props.image : '/profile.webp'}
+                    alt="Raju Rastogi"
+                    width={60}
+                    height={60}
+                    className="hidden lg:block rounded-full mr-4"
+                  />
+                  <div>
+                    {/* Display name here */}
+                    <h1 className="w-full text-[1.5rem] text-left font-semibold">
+                      {props.user.name}
+                    </h1>
 
-                  {/* Display pronouns here */}
-                  <span className="w-full text-[1rem] text-[#9198A1] text-left">
-                    {props.user.name.split(' ')[0]}
-                    {' · '}
-                    {getPronouns(props.user.gender)}
-                  </span>
+                    {/* Display pronouns here */}
+                    <span className="w-full text-[1rem] text-[#9198A1] text-left">
+                      {props.user.name.split(' ')[0]}
+                      {' · '}
+                      {getPronouns(props.user.gender)}
+                    </span>
+                  </div>
                 </div>
-
                 <div className="w-full h-[1px] bg-[#30363D] my-4" />
 
                 {/* Display first portfolio link here */}
@@ -214,37 +222,29 @@ const ProfileClient = (props: ProfileClientProps) => {
                 <h2 className="text-[1rem] text-left font-semibold self-start mb-2">
                   Achievements
                 </h2>
-                <div className="flex flex-row justify-left items-left mobile:w-full gap-2">
-                  <div className="relative group">
-                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2">
-                      🦄
-                    </div>
-                    <div
-                      id="tooltip-unicorn"
-                      role="tooltip"
-                      className="absolute z-10 px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 shadow-xs opacity-0 group-hover:opacity-100 group-hover:visible tooltip dark:bg-gray-700"
-                    >
-                      Successful sign-up!
-                      <div className="tooltip-arrow" data-popper-arrow></div>
-                    </div>
+                <div className="flex flex-wrap justify-left items-left mobile:w-full gap-2">
+                  <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2 text-xs hover:scale-105">
+                    🦄 signed-up!
                   </div>
 
                   {onboardingCompleted && (
-                    <div className="relative group">
-                      <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2">
-                        😽
-                      </div>
-                      <div
-                        id="tooltip-cat"
-                        role="tooltip"
-                        className="absolute z-10 px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 shadow-xs opacity-0 group-hover:opacity-100 group-hover:visible tooltip dark:bg-gray-700"
-                      >
-                        Profile updated!
-                        <div className="tooltip-arrow" data-popper-arrow></div>
-                      </div>
+                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2 text-xs hover:scale-105">
+                      😽 profile ready!
                     </div>
                   )}
                 </div>
+
+                {!isEditing && (
+                  <div className="flex py-4 items-center justify-left">
+                    <div className="hidden md:flex w-full flex-col gap-2 pt-2 mb-4">
+                      <button type="button" onClick={() => setIsEditing(true)}>
+                        <span className="hidden md:flex flex-row items-center justify-center gap-1 bg-[#21262D] w-[96%] px-2 py-1 border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]">
+                          Update your profile
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -262,9 +262,9 @@ const ProfileClient = (props: ProfileClientProps) => {
                     <span className="text-[#9198A1]">{'.md'}</span>
                   </span>
 
-                  {!isEditing && 
+                  {/* {!isEditing && 
                     <button type="button" onClick={() => setIsEditing(true)}>
-                      <span className="flex flex-row gap-1 text-xs font-apro underline">
+                      <span className="hidden md:flex flex-row gap-1 text-xs font-apro underline">
                         Edit profile
                         <Image
                           src="/icons/edit.svg"
@@ -275,7 +275,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                         />
                       </span>
                     </button>
-                  }
+                  } */}
                 </div>
 
                 {/* Actual customizable content of the block */}
@@ -335,25 +335,34 @@ const ProfileClient = (props: ProfileClientProps) => {
 
             {/* Save and cancel buttons here for MOBILE */}
 
-            {isEditing ? (
-              <div className="flex flex-col md:hidden gap-2 pt-2 mb-4">
-                <button
-                  type="submit"
-                  className="w-[96%] h-[32px] mx-auto bg-[#238636] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px] hover:bg-[#2ea043]"
-                >
-                  Save
-                </button>
+            <div className="flex flex-col md:hidden gap-2 pt-2 mb-4">
+              {isEditing && (
+                <>
+                  <button
+                    type="submit"
+                    className="w-[96%] h-[32px] mx-auto bg-[#238636] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px] hover:bg-[#2ea043]"
+                  >
+                    Save
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsEditing(false)}
+                    className="w-[96%] h-[32px] mx-auto bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]"
+                  >
+                    Cancel
+                  </button>
+                </>
+              )}
+              {!isEditing && (
                 <button
                   type="button"
-                  onClick={() => setIsEditing(false)}
+                  onClick={() => setIsEditing(true)}
                   className="w-[96%] h-[32px] mx-auto bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]"
                 >
-                  Cancel
+                  Update your profile
                 </button>
-              </div>
-            ) : (
-              <></>
-            )}
+              )}
+            </div>
           </main>
         </div>
       </div>
