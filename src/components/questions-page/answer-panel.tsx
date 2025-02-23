@@ -1,4 +1,5 @@
 import TextEditor from './text-editor'
+import { RiArrowDropDownLine } from 'react-icons/ri'
 
 export default function AnswerPanel({
   currentIndex,
@@ -10,18 +11,17 @@ export default function AnswerPanel({
   answers: string[]
   setAnswers: React.Dispatch<React.SetStateAction<string[]>>
   topPosition: number
-  // WHYYYYYY DOOO III HAVVVE TO DO THIS  😭
 }) {
   return (
-    <div className="w-full h-full relative">
-      <div
-        className={`py-2 px-4 w-full border-b border-gray-800 md:fixed h-10 bg-[#09090b]`}
-      >
-        <p className="flex items-center gap-2 w-fit border-r-2 border-gray-800 pr-4 h-full">
-          <span className="text-[#519ABA]">TS</span>
-          <span className="font-mono">solution.ts</span>
+    <div className="absolute top-[2em] right-0 w-[60%] min-h-screen h-auto border-l-4 border-[#1F2937]">
+      {/* Fixed Header */}
+      <div className="fixed top-12 lg:top-14 right-0 w-[60%] flex items-center border-b-4 border-l-4 border-gray-800 bg-black pt-2 z-50">
+        <RiArrowDropDownLine className="text-4xl text-zinc-400" />
+        <p className="text-[1rem] font-normal text-[#EBEBEB] font-mono">
+          answer.ts
         </p>
       </div>
+
       <TextEditor
         currentIndex={currentIndex}
         answers={answers}

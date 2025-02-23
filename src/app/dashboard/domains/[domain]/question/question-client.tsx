@@ -2,12 +2,17 @@
 import { useState, useEffect } from 'react'
 import QuestionPanel from '@/components/questions-page/question-panel'
 import AnswerPanel from '@/components/questions-page/answer-panel'
-import { VscExtensions } from 'react-icons/vsc'
 import type { Question } from '@prisma/client'
 import { submitQuestion } from '@/app/actions/questions'
 import { redirect } from 'next/navigation'
 import Image from 'next/image'
 import { ImSpinner2 } from 'react-icons/im'
+
+import next_q_icon from '@/../public/icons/next_q.svg'
+import prev_q_icon from '@/../public/icons/prev_q.svg'
+import reset_a_icon from '@/../public/icons/reset_a.svg'
+import next from 'next'
+
 export default function QuestionsPage({
   questions,
   answers: initialAnswers,
@@ -33,6 +38,16 @@ export default function QuestionsPage({
   })
   const [answers, setAnswers] = useState<string[]>(initialAnswers)
   const [navbarHeight, setNavbarHeight] = useState(20)
+
+  const getDisabledWhen = (name: string) => {
+    if (name === 'next') {
+      return currentIndex === questions.length - 1 && !answers[currentIndex]
+    } else if (name === 'prev') {
+      return currentIndex === 0
+    }
+    return true
+  }
+
   const handleNext = async () => {
     setMutex(true)
     await submitQuestion({
@@ -81,61 +96,78 @@ export default function QuestionsPage({
   }, [currentIndex, answers])
   return (
     <main className="flex-1 relative flex flex-col min-h-screen">
-      {/* Sidebar - Hidden on mobile, visible on desktop */}
-      {mutex && (
-        <div className="w-full h-screen fixed top-0 left-0 bg-black/20 backdrop-blur-sm z-[900] flex items-center justify-center">
-          {/* <Image
-            src="/logos/navbar-logos/csi lotti.gif"
-            width={400}
-            height={400}
-            alt=""
-            className="w-20 md:w-44 aspect-square rounded-xl"
-          /> */}
-          <ImSpinner2 className="animate-spin w-16 h-auto" />
-        </div>
-      )}
-      <section className="flex flex-row h-full relative">
+      <section className="flex flex-row w-full h-full relative -top-2">
+        {/* Navigation for questions page */}
         <aside
-          className={`hidden md:flex flex-col gap-2 h-full z-10 fixed left-0 top-[${navbarHeight}vh] bg-[#09090b]`}
+          className={`hidden md:flex flex-col w-[3em] h-full items-center justify-top gap-3 pt-10 z-10 fixed border-r-2 border-[#3C444C] bg-black`}
         >
           {[
-            '/explorer.webp',
-            '/search.webp',
-            '/sourcecontrol.webp',
-            '/run.webp',
-            '/settings.webp',
-          ].map((src, index) => (
-            <img
-              key={src}
-              src={src}
-              alt={`${index + 1}`}
-              className="w-12 h-12 rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
-            />
+            {
+              icon: next_q_icon,
+              name: 'next',
+              tip: 'Next Question',
+              action: handleNext,
+            },
+            {
+              icon: prev_q_icon,
+              name: 'prev',
+              tip: 'Previous Question',
+              action: handlePrevious,
+            },
+            {
+              icon: reset_a_icon,
+              name: 'reset',
+              tip: 'Reset Answer',
+              action: handleNext,
+            },
+          ].map((item, index) => (
+            <button
+              key={item.name}
+              type="button"
+              onClick={item.action}
+              disabled={getDisabledWhen(item.name)}
+            >
+              <div className="relative -left-2 group">
+                <Image
+                  key={item.name}
+                  src={item.icon}
+                  width={32}
+                  height={32}
+                  alt={item.name}
+                  className="relative left-2 w-6 h-6 rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                />
+                {/* <div
+                  id="tooltip-cat"
+                  role="tooltip"
+                  className="absolute z-10 w-fit px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 shadow-xs opacity-0 group-hover:opacity-100 group-hover:visible tooltip dark:bg-gray-700"
+                >
+                  {item.tip}
+                  <div className="tooltip-arrow" data-popper-arrow></div>
+                </div> */}
+              </div>
+            </button>
           ))}
         </aside>
 
-        {/* Main content with flex-grow */}
-        {/* SAAAVVVEEE MEEEE PLEASEEE */}
-        <section className="flex flex-col md:flex-row gap-4 min-h-[90vh] flex-grow w-full md:pl-12 relative">
-          <div className="flex tab:flex-row mobile:flex-col flex-grow h-full border-r">
-            {/* Question Panel with min-height */}
-            <div className="flex flex-col w-full md:w-2/5">
-              <div className="md:hidden md:mb-4 min-h-[150px] max-h-[300px] overflow-y-auto">
-                <QuestionPanel question={questions[currentIndex].question} />
-              </div>
-
-              {/* Desktop Question Panel */}
-              <div
-                className={`hidden tab:flex fixed left-12 top-[${navbarHeight}vh]`}
-              >
-                <QuestionPanel question={questions[currentIndex].question} />
-              </div>
+        {/* Question & Answer panels */}
+        <section className="flex-1 flex flex-col md:flex-row gap-4 h-fit md:pl-12">
+          {/* Question Panel here*/}
+          <div className="w-fit">
+            {/* On mobile */}
+            <div className="md:hidden md:mb-4 min-h-[150px] max-h-[300px] overflow-y-auto">
+              <QuestionPanel question={questions[currentIndex].question} />
             </div>
-            {/* Answer Panel with flex-grow */}
-            <div
-              className={`border-l border-gray-800 flex-grow  overflow-auto max-h-[80vh] relative`}
-              id="answer-panel"
-            >
+
+            {/* On tabs & desktop */}
+            <div className={`hidden md:flex`}>
+              <QuestionPanel question={questions[currentIndex].question} />
+            </div>
+          </div>
+
+          {/* Answer Panel here */}
+          <div className="w-fit">
+            {/* On tabs & desktop */}
+            <div className={`hidden md:flex`} id="answer-panel">
               <AnswerPanel
                 currentIndex={currentIndex}
                 answers={answers}
@@ -147,8 +179,10 @@ export default function QuestionsPage({
         </section>
       </section>
 
+      <div className="fixed h-[2em] bottom-0 w-full border-t-4 border-[#1F2937] bg-black"></div>
+
       {/* Navigation buttons with dynamic positioning */}
-      <div className="sticky bottom-0 border-t border-gray-800 bg-[#09090b] z-[100] py-2 mt-auto w-full px-6">
+      {/* <div className="sticky bottom-0 border-t border-gray-800 bg-[#09090b] z-[100] py-2 mt-auto w-full px-6">
         <div className="flex justify-between items-center px-2 md:px-0 gap-2">
           <button
             style={{
@@ -198,7 +232,7 @@ export default function QuestionsPage({
             {currentIndex === questions.length - 1 ? 'Finish Quiz' : 'Next >>'}
           </button>
         </div>
-      </div>
+      </div> */}
     </main>
   )
 }

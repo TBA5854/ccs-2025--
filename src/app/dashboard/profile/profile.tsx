@@ -229,21 +229,21 @@ const ProfileClient = (props: ProfileClientProps) => {
                     </div>
                   </div>
 
-                  {onboardingCompleted &&
-                  <div className="relative group">
-                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2">
-                      😽
+                  {onboardingCompleted && (
+                    <div className="relative group">
+                      <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2">
+                        😽
+                      </div>
+                      <div
+                        id="tooltip-cat"
+                        role="tooltip"
+                        className="absolute z-10 px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 shadow-xs opacity-0 group-hover:opacity-100 group-hover:visible tooltip dark:bg-gray-700"
+                      >
+                        Profile updated!
+                        <div className="tooltip-arrow" data-popper-arrow></div>
+                      </div>
                     </div>
-                    <div
-                      id="tooltip-cat"
-                      role="tooltip"
-                      className="absolute z-10 px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 shadow-xs opacity-0 group-hover:opacity-100 group-hover:visible tooltip dark:bg-gray-700"
-                    >
-                      Profile updated!
-                      <div className="tooltip-arrow" data-popper-arrow></div>
-                    </div>
-                  </div>
-                  }
+                  )}
                 </div>
               </div>
             )}
