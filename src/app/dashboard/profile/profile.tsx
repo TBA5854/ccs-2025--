@@ -294,18 +294,6 @@ const ProfileClient = (props: ProfileClientProps) => {
                     </div>
                   )}
                 </div>
-
-                {!isEditing && (
-                  <div className="flex py-4 items-center justify-left">
-                    <div className="hidden md:flex w-full flex-col gap-2 pt-2 mb-4">
-                      <button type="button" onClick={() => setIsEditing(true)}>
-                        <span className="hidden md:flex flex-row items-center justify-center gap-1 bg-[#21262D] w-[92%] px-2 py-1 border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]">
-                          Update your profile
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                )}
               </div>
             )}
           </div>
