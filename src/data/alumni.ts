@@ -1,11 +1,19 @@
 export const alumniData = [
   {
+    name: 'Tanya Warrier',
+    expertise: 'AI and microservices expert, ex-Googler',
+    company: 'Asian Institute of Digital Finance',
+    linkedin: 'https://www.linkedin.com/in/tanyawarrier/',
+    position: 'Research Analyst',
+    src: 'https://i.ibb.co/vWNHQB0/tw.jpg',
+  },
+  {
     name: 'Ameesha Gireesh Kumar',
     expertise: 'Algorithm and optimization queen',
     company: 'ION',
     linkedin: 'https://www.linkedin.com/in/ameeshagireesh/',
     position: 'Implementation Consultant',
-    src: 'https://i.ibb.co/LdJ2NGvL/Screenshot-2025-02-19-at-10-32-06-PM.png',
+    src: 'https://i.ibb.co/qbDbK22/ag.jpg',
   },
   {
     name: 'Nimish Jain',
@@ -13,7 +21,7 @@ export const alumniData = [
     company: 'Luganodes',
     linkedin: 'https://www.linkedin.com/in/nimishjn/',
     position: 'Software Development Engineer',
-    src: 'https://i.ibb.co/kVrCX3gf/Screenshot-2025-02-19-at-10-33-30-PM.png',
+    src: 'https://i.ibb.co/QvRJyc42/nj.jpg',
   },
   {
     name: 'Sanjay Kumar Baskaran',
@@ -21,15 +29,15 @@ export const alumniData = [
     company: 'CapX',
     linkedin: 'https://www.linkedin.com/in/sanjaybaskaran/',
     position: 'Software Development Engineer',
-    src: 'https://i.ibb.co/dwTZfnVv/Screenshot-2025-02-19-at-10-34-46-PM.png',
+    src: 'https://i.ibb.co/7dF0tw39/sb.jpg',
   },
   {
     name: 'Samvid',
-    expertise: 'Game development enthusiast',
+    expertise: 'Smart interfaces and graphics king',
     company: 'Hitwicket',
     linkedin: 'https://www.linkedin.com/in/samvid-dasari-02baa7201/',
     position: 'UI/UX Designer',
-    src: 'https://i.ibb.co/vxrRbJks/Screenshot-2025-02-19-at-10-35-49-PM.png',
+    src: 'https://i.ibb.co/tT7HpfrR/sam.jpg',
   },
   {
     name: 'Manan (Mannan Goyal)',
@@ -37,7 +45,7 @@ export const alumniData = [
     company: 'Luganodes',
     linkedin: 'https://www.linkedin.com/in/mannan-goyal/',
     position: 'Software Development Engineer',
-    src: 'https://i.ibb.co/p6nhDvy2/Screenshot-2025-02-19-at-10-36-38-PM.png',
+    src: 'https://i.ibb.co/d0G6By9c/mg.jpg',
   },
   {
     name: 'Bhavee',
@@ -45,14 +53,6 @@ export const alumniData = [
     company: 'Motorq',
     linkedin: 'https://www.linkedin.com/in/bhaveesarna/',
     position: 'Associate Data Scientist',
-    src: 'https://i.ibb.co/GfMwgNNb/Screenshot-2025-02-19-at-10-37-15-PM.png',
-  },
-  {
-    name: 'Kaushal Rathi',
-    expertise: 'Distributed systems maestro',
-    company: 'Microsoft',
-    linkedin: 'https://www.linkedin.com/in/kaushalrathi/',
-    position: 'Software Development Engineer',
-    src: 'https://i.ibb.co/whkJV60z/Screenshot-2025-02-19-at-10-37-45-PM.png',
+    src: 'https://i.ibb.co/RkBvc5cR/bs.jpg',
   },
 ]
