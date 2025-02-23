@@ -32,7 +32,7 @@ export default function QuestionsPage({
     }
     setMutex(false)
   }
-
+  const submitAttempts: any[] = []
   const [currentIndex, setCurrentIndex] = useState(() => {
     // Find first unanswered question
     const firstUnansweredIndex = initialAnswers.findIndex((answer) => !answer)
@@ -52,18 +52,19 @@ export default function QuestionsPage({
 
   const handleNext = async () => {
     setMutex(true)
-    await submitQuestion({
+    const promise = submitQuestion({
       questionId: questions[currentIndex].id,
       answer: answers[currentIndex],
       sessionId,
     })
-
+    submitAttempts.push(promise)
     setMutex(false)
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1)
     }
 
     if (currentIndex === questions.length - 1) {
+      await Promise.all(submitAttempts)
       // TODO: @padhai-head
       // toast.success("Quiz completed successfully!");
       redirect('/dashboard/domains?completed=true')
