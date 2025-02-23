@@ -92,7 +92,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="w-full text-xs text-left mb-2"
+                    className="w-full text-xs text-left text-zinc-200 mb-2"
                   >
                     Name
                   </label>
@@ -103,7 +103,8 @@ const ProfileClient = (props: ProfileClientProps) => {
                     onChange={(e) =>
                       setFormData((prev) => ({ ...prev, name: e.target.value }))
                     }
-                    className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
+                    className="w-full h-fit text-xs bg-transparent placeholder:text-zinc-400 text-zinc-400 text-sm border border-zinc-800 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zinc-400 shadow-sm focus:shadow"
+                    placeholder="Type here..."
                     required
                   />
                 </div>
@@ -125,12 +126,18 @@ const ProfileClient = (props: ProfileClientProps) => {
                         gender: e.target.value as Gender,
                       })
                     }
-                    className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
+                    className="w-full h-fit text-xs bg-transparent placeholder:text-zinc-400 text-zinc-400 text-sm border border-zinc-800 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zinc-400 shadow-sm focus:shadow pr-8"
                   >
-                    <option value="">Select Gender</option>
+                    <option value="" className="bg-zinc-900 text-white">
+                      Select Gender
+                    </option>
                     {Object.values(Gender).map((gender) => (
-                      <option key={gender} value={gender}>
-                        {titleCase(gender)}
+                      <option
+                        key={gender}
+                        value={gender}
+                        className="bg-zinc-900 text-white bg-transparent"
+                      >
+                        {titleCase(gender.replaceAll('_', ' '))}
                       </option>
                     ))}
                   </select>
@@ -151,7 +158,8 @@ const ProfileClient = (props: ProfileClientProps) => {
                     onChange={(e) =>
                       setFormData({ ...formData, phoneNumber: e.target.value })
                     }
-                    className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
+                    className="w-full h-fit text-xs bg-transparent placeholder:text-zinc-400 text-zinc-400 text-sm border border-zinc-800 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zinc-400 shadow-sm focus:shadow"
+                    placeholder="Type here..."
                   />
                 </div>
 
@@ -172,7 +180,8 @@ const ProfileClient = (props: ProfileClientProps) => {
                       formData.portfolios[0].link = e.target.value
                       console.log(plink)
                     }}
-                    className="w-full h-fit text-xs bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] p-2"
+                    className="w-full h-fit text-xs bg-transparent placeholder:text-zinc-400 text-zinc-400 text-sm border border-zinc-800 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zinc-400 shadow-sm focus:shadow"
+                    placeholder="Type here..."
                   />
                 </div>
 
@@ -276,7 +285,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                   <div className="flex py-4 items-center justify-left">
                     <div className="hidden md:flex w-full flex-col gap-2 pt-2 mb-4">
                       <button type="button" onClick={() => setIsEditing(true)}>
-                        <span className="hidden md:flex flex-row items-center justify-center gap-1 bg-[#21262D] w-[96%] px-2 py-1 border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]">
+                        <span className="hidden md:flex flex-row items-center justify-center gap-1 bg-[#21262D] w-[92%] px-2 py-1 border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]">
                           Update your profile
                         </span>
                       </button>
@@ -289,8 +298,8 @@ const ProfileClient = (props: ProfileClientProps) => {
 
           <main className="col-span-1 md:col-span-7 text-left overflow-x-auto">
             {/* README.md panel */}
-            <Card className="border-0 md:border-[2px] border-[#30363D] rounded-0 md:rounded-[6px] bg-[#0D1117] max-w-full w-full mx-auto mb-8">
-              <div className="p-4 md:p-6 space-y-4 w-full">
+            <Card className="border-0 md:border-[2px] border-[#30363D] rounded-0 md:rounded-[6px] bg-[#0D1117] max-w-full w-[92%] md:w-full mx-auto mb-8">
+              <div className="p-4 md:p-6 space-y-4">
                 {/* Topmost row of the block */}
                 <div className="flex flex-row justify-between">
                   <span className="text-xs font-apro">
@@ -338,7 +347,8 @@ const ProfileClient = (props: ProfileClientProps) => {
                                 aboutUs: e.target.value,
                               })
                             }
-                            className="w-full bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] px-3 py-2"
+                            className="w-full h-fit text-xs bg-transparent placeholder:text-zinc-400 text-zinc-400 text-sm border border-zinc-800 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zinc-400 shadow-sm focus:shadow"
+                            placeholder="Type here..."
                             rows={3}
                           />
                         </div>
@@ -378,14 +388,14 @@ const ProfileClient = (props: ProfileClientProps) => {
                 <>
                   <button
                     type="submit"
-                    className="w-[96%] h-[32px] mx-auto bg-[#238636] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px] hover:bg-[#2ea043]"
+                    className="w-[92%] h-[32px] mx-auto bg-[#238636] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px] hover:bg-[#2ea043]"
                   >
                     Save
                   </button>
                   <button
                     type="button"
                     onClick={() => setIsEditing(false)}
-                    className="w-[96%] h-[32px] mx-auto bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]"
+                    className="w-[92%] h-[32px] mx-auto bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]"
                   >
                     Cancel
                   </button>
@@ -395,7 +405,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                 <button
                   type="button"
                   onClick={() => setIsEditing(true)}
-                  className="w-[96%] h-[32px] mx-auto bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px]"
+                  className="w-[92%] h-[32px] mx-auto bg-[#21262D] border border-[#F0F6FC] border-opacity-10 rounded-[6px] text-[14px] mb-2"
                 >
                   Update your profile
                 </button>
