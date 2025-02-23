@@ -102,7 +102,7 @@ export default function QuestionsPage({
       <section className="flex flex-col md:flex-row w-full h-full relative -top-2">
         {/* Sidebar navigation for questions page */}
         <aside
-          className={`hidden md:flex flex-col w-[3em] h-full items-center justify-top gap-3 pt-10 z-10 fixed border-r-2 border-[#3C444C] bg-black`}
+          className={`hidden md:flex flex-col w-[3em] h-full items-center justify-top gap-4 pt-4 z-10 fixed border-r-2 border-[#3C444C] bg-black`}
         >
           {/* Back to domain selection page */}
           <Link href="/dashboard/domains" type="button">
