@@ -49,15 +49,15 @@ export async function startOrResumeDomainQuiz(domain: DomainType) {
           attemptedDomains: true,
         },
       })
-  
+
       if (!user) {
         throw new Error('User not found')
       }
-  
+
       if (user?.attemptedDomains.length >= 2) {
         throw new Error('Cannot select more than two domains')
       }
-      
+
       quizSession = await prisma.quizSession.create({
         data: {
           userId: session.user.id,

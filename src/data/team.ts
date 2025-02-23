@@ -1,11 +1,59 @@
 export const teamData = [
   {
+    src: 'https://i.ibb.co/dsTgDh9g/aryan.jpg',
+    alt: 'Narang',
+  },
+  {
+    src: 'https://i.ibb.co/Kz3jR4mM/ansu.jpg',
+    alt: 'Ansu',
+  },
+  {
+    src: 'https://i.ibb.co/fzBwYYd1/aryan-bharti.jpg',
+    alt: 'Bharti',
+  },
+  {
+    src: 'https://i.ibb.co/2YyTM1zW/ojas.jpg',
+    alt: 'Ojas',
+  },
+  {
+    src: 'https://i.ibb.co/hR5T9Rv0/nivedita.jpg',
+    alt: 'Nivedita',
+  },
+  {
     src: 'https://i.ibb.co/Rk7Nt4jV/keshav.jpg',
     alt: 'Keshav',
   },
   {
+    src: 'https://i.ibb.co/XZYFnmFH/ayush.jpg',
+    alt: 'Ayush',
+  },
+  {
     src: 'https://i.ibb.co/PsJTJkp5/manas.jpg',
-    alt: 'Manas Laud',
+    alt: 'Manas',
+  },
+  {
+    src: 'https://i.ibb.co/BVQY8LYW/preynsh.jpg',
+    alt: 'Preynsh',
+  },
+  {
+    src: 'https://i.ibb.co/dJVcfSR1/yug.jpg',
+    alt: 'Yug',
+  },
+  {
+    src: 'https://i.ibb.co/V1whW4L/ishika.jpg',
+    alt: 'Ishika',
+  },
+  {
+    src: 'https://i.ibb.co/FLYt2Nzn/vibhor.jpg',
+    alt: 'Vibhor',
+  },
+  {
+    src: 'https://i.ibb.co/674YQTsC/kumar.jpg',
+    alt: 'Kumar',
+  },
+  {
+    src: 'https://i.ibb.co/5gG8N78j/arshia.jpg',
+    alt: 'Arshia',
   },
   {
     src: 'https://i.ibb.co/xSYkfJfy/adhavan.jpg',
@@ -24,22 +72,6 @@ export const teamData = [
     alt: 'Ambuja',
   },
   {
-    src: 'https://i.ibb.co/Kz3jR4mM/ansu.jpg',
-    alt: 'Ansu',
-  },
-  {
-    src: 'https://i.ibb.co/5gG8N78j/arshia.jpg',
-    alt: 'Arshia',
-  },
-  {
-    src: 'https://i.ibb.co/fzBwYYd1/aryan-bharti.jpg',
-    alt: 'Aryan bharti',
-  },
-  {
-    src: 'https://i.ibb.co/XZYFnmFH/ayush.jpg',
-    alt: 'Ayush',
-  },
-  {
     src: 'https://i.ibb.co/vCnjZRbh/ayushi.jpg',
     alt: 'Ayushi',
   },
@@ -56,10 +88,6 @@ export const teamData = [
     alt: 'Harsh',
   },
   {
-    src: 'https://i.ibb.co/V1whW4L/ishika.jpg',
-    alt: 'Ishika',
-  },
-  {
     src: 'https://i.ibb.co/YBVj4wXM/ishita.jpg',
     alt: 'Ishita',
   },
@@ -72,20 +100,12 @@ export const teamData = [
     alt: 'Khadeeja',
   },
   {
-    src: 'https://i.ibb.co/674YQTsC/kumar.jpg',
-    alt: 'Aryan Kumar',
-  },
-  {
     src: 'https://i.ibb.co/gL6VQ05L/manya.jpg',
     alt: 'Manya',
   },
   {
     src: 'https://i.ibb.co/5Wk5gGGt/mohit.jpg',
     alt: 'Mohit',
-  },
-  {
-    src: 'https://i.ibb.co/dsTgDh9g/aryan.jpg',
-    alt: 'Aryan Narang',
   },
   {
     src: 'https://i.ibb.co/kVZS1RMX/neeladri.jpg',
@@ -100,20 +120,8 @@ export const teamData = [
     alt: 'Nikita',
   },
   {
-    src: 'https://i.ibb.co/hR5T9Rv0/nivedita.jpg',
-    alt: 'Nivedita',
-  },
-  {
-    src: 'https://i.ibb.co/2YyTM1zW/ojas.jpg',
-    alt: 'Ojas',
-  },
-  {
     src: 'https://i.ibb.co/qYYMhFL6/prapti.jpg',
     alt: 'Prapti',
-  },
-  {
-    src: 'https://i.ibb.co/BVQY8LYW/preynsh.jpg',
-    alt: 'Preynsh',
   },
   {
     src: 'https://i.ibb.co/LzC44nJx/sachee.jpg',
@@ -152,15 +160,7 @@ export const teamData = [
     alt: 'Yashwanth',
   },
   {
-    src: 'https://i.ibb.co/dJVcfSR1/yug.jpg',
-    alt: 'Yug',
-  },
-  {
     src: 'https://i.ibb.co/gZdGpZQd/ashish.jpg',
     alt: 'Ashish',
-  },
-  {
-    src: 'https://i.ibb.co/FLYt2Nzn/vibhor.jpg',
-    alt: 'Vibhor',
   },
 ]

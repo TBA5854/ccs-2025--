@@ -138,7 +138,7 @@ export default function DomainsPage() {
             cannot pause it. All the best!
           </p>
         </div>
-  
+
         {/* Domains Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-1 gap-4 lg:gap-8 max-w-[1000px] mx-auto px-2 sm:px-4 my-8">
           {content.map((domain) => (
