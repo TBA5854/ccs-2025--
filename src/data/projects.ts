@@ -31,7 +31,7 @@ export const projects = [
     projectDescription:
       'The project repository for this website, built as a collaborative effort.',
     language: Languages.JAVASCRIPT,
-    builtBy: 'Yug Oswal',
+    builtBy: 'Everyone',
     repoLink: 'https://github.com/csivitu/ccs-2025',
     authorLink: 'https://github.com/csivitu',
     type: '🌏 site',
