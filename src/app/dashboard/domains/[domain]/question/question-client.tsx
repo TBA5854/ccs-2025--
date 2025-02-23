@@ -96,7 +96,7 @@ export default function QuestionsPage({
   }, [currentIndex, answers])
   return (
     <main className="flex-1 relative flex flex-col min-h-screen">
-      <section className="flex flex-row w-full h-full relative -top-2">
+      <section className="flex flex-col md:flex-row w-full h-full relative -top-2">
         {/* Navigation for questions page */}
         <aside
           className={`hidden md:flex flex-col w-[3em] h-full items-center justify-top gap-3 pt-10 z-10 fixed border-r-2 border-[#3C444C] bg-black`}
@@ -166,6 +166,16 @@ export default function QuestionsPage({
 
           {/* Answer Panel here */}
           <div className="w-fit">
+            {/* On mobile */}
+            <div className="md:hidden md:mb-4 min-h-[150px] max-h-[300px] overflow-y-auto">
+              <AnswerPanel
+                currentIndex={currentIndex}
+                answers={answers}
+                setAnswers={setAnswers}
+                topPosition={navbarHeight}
+              />
+            </div>
+
             {/* On tabs & desktop */}
             <div className={`hidden md:flex`} id="answer-panel">
               <AnswerPanel
@@ -182,57 +192,41 @@ export default function QuestionsPage({
       <div className="fixed h-[2em] bottom-0 w-full border-t-4 border-[#1F2937] bg-black"></div>
 
       {/* Navigation buttons with dynamic positioning */}
-      {/* <div className="sticky bottom-0 border-t border-gray-800 bg-[#09090b] z-[100] py-2 mt-auto w-full px-6">
-        <div className="flex justify-between items-center px-2 md:px-0 gap-2">
+      <div className="fixed bottom-0 border-t border-gray-800 bg-[#09090b] z-[100] py-2 mt-auto w-full px-6">
+        <div className="flex justify-between md:justify-end items-center px-2 md:px-0 gap-2 md:gap-4">
           <button
-            style={{
-              display: 'inline-block',
-              padding: '8px 16px',
-              textDecoration: 'none',
-              borderRadius: '15px',
-              backgroundColor: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(30px)',
-              color: 'rgba(255,255,255,0.8)',
-              fontSize: '14px',
-              letterSpacing: '2px',
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-            }}
-            className="w-1/2 md:w-1/6"
+            className="
+              inline-block w-1/2 md:w-1/6 px-4 py-2 
+              text-[14px] uppercase tracking-widest cursor-pointer 
+              text-white/80 bg-white/10 border border-white/10 
+              rounded-[15px] backdrop-blur-[30px] 
+              disabled:cursor-not-allowed disabled:opacity-50
+            "
             onClick={handlePrevious}
             disabled={currentIndex === 0}
             type="button"
           >
-            &lt;&lt; Previous
+            &lt;&lt; Prev
           </button>
 
           <button
-            style={{
-              display: 'inline-block',
-              padding: '8px 16px',
-              textDecoration: 'none',
-              borderRadius: '15px',
-              backgroundColor: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(30px)',
-              color: 'rgba(255,255,255,0.8)',
-              fontSize: '14px',
-              letterSpacing: '2px',
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-            }}
-            type="button"
-            className="w-1/2 md:w-1/6"
+            className="
+              inline-block w-1/2 md:w-1/6 px-4 py-2 
+              text-[14px] uppercase tracking-widest cursor-pointer 
+              text-white/80 bg-white/10 border border-white/10 
+              rounded-[15px] backdrop-blur-[30px] 
+              disabled:cursor-not-allowed disabled:opacity-50
+            "
             onClick={handleNext}
             disabled={
               currentIndex === questions.length - 1 && !answers[currentIndex]
             }
+            type="button"
           >
             {currentIndex === questions.length - 1 ? 'Finish Quiz' : 'Next >>'}
           </button>
         </div>
-      </div> */}
+      </div>
     </main>
   )
 }
