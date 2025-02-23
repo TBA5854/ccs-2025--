@@ -11,12 +11,16 @@ import managementLogo from 'public/icons/puzzle_management.svg'
 import { getAttemptedDomains } from '@/app/actions/domains'
 import type { AttemptedDomain } from '@prisma/client'
 import { DomainStatus } from '@/types/domain-card-props'
+import { useSearchParams } from 'next/navigation'
+import ErrorBanner from '@/components/warning'
 
 const MAX_DOMAIN_ATTEMPTS = 2
 
 export default function DomainsPage() {
   const [selectedDomains, setSelectedDomains] = useState<AttemptedDomain[]>([])
   const [loading, setLoading] = useState(true)
+  const searchParams = useSearchParams()
+  const error = searchParams.get('error')
 
   useEffect(() => {
     async function fetchDomains() {
@@ -117,23 +121,31 @@ export default function DomainsPage() {
   ]
 
   return (
-    <main className="flex-1 px-4 sm:px-6 lg:px-8 h-full">
-      <div className="flex flex-col items-center gap-4 sm:gap-6 text-center mt-[2em] md:mt-[4em] md:mb-[2em]">
-        <h1 className="text-white font-sans-code text-lg lg:text-2xl font-semibold leading-normal sm:leading-relaxed px-2">
-          Welcome to CSI! Let&apos;s get started.
-        </h1>
-        <p className="text-[#9198A1] font-sans-code text-sm -mt-4 sm:text-base lg:text-md font-normal leading-relaxed max-w-3xl px-2">
-          You can choose upto 2 domains. Once you start a questionaire, you
-          cannot pause it. All the best!
-        </p>
-      </div>
-
-      {/* Domains Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-1 gap-4 lg:gap-8 max-w-[1000px] mx-auto px-2 sm:px-4 my-8">
-        {content.map((domain) => (
-          <DomainCard {...domain} loading={loading} key={domain.domainName} />
-        ))}
-      </div>
-    </main>
+    <>
+      {error === 'maxDomains' && (
+        <ErrorBanner
+          title="Domain Selection Limit Reached!"
+          message="You have already selected two domains. You cannot select more than two domains."
+        />
+      )}
+      <main className="flex-1 px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex flex-col items-center gap-4 sm:gap-6 text-center mt-[2em] md:mt-[4em] md:mb-[2em]">
+          <h1 className="text-white font-sans-code text-lg lg:text-2xl font-semibold leading-normal sm:leading-relaxed px-2">
+            Welcome to CSI! Let&apos;s get started.
+          </h1>
+          <p className="text-[#9198A1] font-sans-code text-sm -mt-4 sm:text-base lg:text-md font-normal leading-relaxed max-w-3xl px-2">
+            You can choose upto 2 domains. Once you start a questionaire, you
+            cannot pause it. All the best!
+          </p>
+        </div>
+  
+        {/* Domains Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-1 gap-4 lg:gap-8 max-w-[1000px] mx-auto px-2 sm:px-4 my-8">
+          {content.map((domain) => (
+            <DomainCard {...domain} loading={loading} key={domain.domainName} />
+          ))}
+        </div>
+      </main>
+    </>
   )
 }

@@ -24,6 +24,9 @@ export default async function QuestionsListing({
     capitalizedDomain as DomainType,
   )
   if (response.error || !response.data) {
+    if (response.error === 'Cannot select more than two domains') {
+      redirect('/dashboard/domains?error=maxDomains')
+    }
     console.error('Error fetching questions:', response.error)
     throw response.error
   }
