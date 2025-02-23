@@ -7,10 +7,12 @@ import { submitQuestion } from '@/app/actions/questions'
 import { redirect } from 'next/navigation'
 import Image from 'next/image'
 import { ImSpinner2 } from 'react-icons/im'
+import Link from 'next/link'
 
 import next_q_icon from '@/../public/icons/next_q.svg'
 import prev_q_icon from '@/../public/icons/prev_q.svg'
 import reset_a_icon from '@/../public/icons/reset_a.svg'
+import home_icon from '@/../public/icons/home.svg'
 import next from 'next'
 
 export default function QuestionsPage({
@@ -67,6 +69,7 @@ export default function QuestionsPage({
       redirect('/dashboard/domains?completed=true')
     }
   }
+
   useEffect(() => {
     const banner = document.getElementById('profile-completion-banner')
     if (banner) {
@@ -97,10 +100,24 @@ export default function QuestionsPage({
   return (
     <main className="flex-1 relative flex flex-col min-h-screen">
       <section className="flex flex-col md:flex-row w-full h-full relative -top-2">
-        {/* Navigation for questions page */}
+        {/* Sidebar navigation for questions page */}
         <aside
           className={`hidden md:flex flex-col w-[3em] h-full items-center justify-top gap-3 pt-10 z-10 fixed border-r-2 border-[#3C444C] bg-black`}
         >
+          {/* Back to domain selection page */}
+          <Link href="/dashboard/domains" type="button">
+            <div className="relative -left-2 group">
+              <Image
+                src={home_icon}
+                width={32}
+                height={32}
+                alt="domains"
+                className="relative left-2 w-6 h-6 rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+              />
+            </div>
+          </Link>
+
+          {/* Next & previous quick access ribbon */}
           {[
             {
               icon: next_q_icon,
@@ -113,12 +130,6 @@ export default function QuestionsPage({
               name: 'prev',
               tip: 'Previous Question',
               action: handlePrevious,
-            },
-            {
-              icon: reset_a_icon,
-              name: 'reset',
-              tip: 'Reset Answer',
-              action: handleNext,
             },
           ].map((item, index) => (
             <button
@@ -136,14 +147,6 @@ export default function QuestionsPage({
                   alt={item.name}
                   className="relative left-2 w-6 h-6 rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
                 />
-                {/* <div
-                  id="tooltip-cat"
-                  role="tooltip"
-                  className="absolute z-10 w-fit px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 shadow-xs opacity-0 group-hover:opacity-100 group-hover:visible tooltip dark:bg-gray-700"
-                >
-                  {item.tip}
-                  <div className="tooltip-arrow" data-popper-arrow></div>
-                </div> */}
               </div>
             </button>
           ))}
