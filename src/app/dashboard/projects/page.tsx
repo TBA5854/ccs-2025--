@@ -77,7 +77,9 @@ const ProjectPage = () => {
                 <div
                   key={project.projectTitle}
                   className={`p-2 lg:p-3 relative border-gray-700 ${
-                    index !== 6 ? 'border-b-2 lg:border-b-3 w-full' : ''
+                    index !== projects.length - 1
+                      ? 'border-b-2 lg:border-b-3 w-full'
+                      : ''
                   }`}
                 >
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-2 lg:gap-3">
@@ -116,6 +118,11 @@ const ProjectPage = () => {
                           </span>
                         </div>
 
+                        {/* project type */}
+                        <div className="flex items-center text-[12px] text-[#8B949E] font-sans-code">
+                          <span>{project.type}</span>
+                        </div>
+
                         {/* project author */}
                         <div className="flex items-center text-[12px] text-[#8B949E] font-sans-code">
                           <img
@@ -129,11 +136,6 @@ const ProjectPage = () => {
                         </div>
                       </div>
                     </div>
-                    {/* <img
-              src="/giticon.webp"
-              alt="Project Preview"
-              className="hidden lg:block lg:w-[84px] lg:h-[84px] rounded-[10px] mt-1 lg:self-start"
-            /> */}
                   </div>
                 </div>
               ))}
