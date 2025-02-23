@@ -106,13 +106,13 @@ export default function QuestionsPage({
         >
           {/* Back to domain selection page */}
           <Link href="/dashboard/domains" type="button">
-            <div className="relative -left-2 group">
+            <div className="relative group">
               <Image
                 src={home_icon}
                 width={32}
                 height={32}
                 alt="domains"
-                className="relative left-2 w-6 h-6 rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                className="relative w-6 h-6 rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
               />
             </div>
           </Link>
