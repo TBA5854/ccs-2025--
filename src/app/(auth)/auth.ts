@@ -26,21 +26,37 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (!userExists) {
           return false
         }
+        const prismaUser = await prisma.user.findUnique({ where: { email } })
+
+        if (!prismaUser) {
+          const phoneData = await getUserPhoneNumber(email)
+          const phoneNumber = phoneData ? String(phoneData.mobile_no) : null
+          await prisma.user.create({
+            data: {
+              id: user.id,
+              email,
+              name: user.name ?? '',
+              image: user.image ?? '',
+              phoneNumber,
+              aboutUs: '',
+            },
+          })
+        }
       }
       return true
     },
 
     async session({ session, user }) {
-      if (session.user) {
-        const phoneNo = await getUserPhoneNumber(session.user.email)
-        if (!phoneNo) return session
-        await prisma.user.update({
-          where: { id: user.id },
-          data: {
-            phoneNumber: String(phoneNo.mobile_no),
-          },
-        })
-      }
+      // if (session.user) {
+      //   const phoneNo = await getUserPhoneNumber(session.user.email)
+      //   if (!phoneNo) return session
+      //   await prisma.user.update({
+      //     where: { id: user.id },
+      //     data: {
+      //       phoneNumber: String(phoneNo.mobile_no),
+      //     },
+      //   })
+      // }
       return session
     },
   },
