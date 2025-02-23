@@ -11,11 +11,11 @@ interface PortfolioSectionProps {
   portfolios: Portfolio[]
   onPortfolioChange: (portfolios: Portfolio[]) => void
 }
-const PortfolioSection: React.FC<PortfolioSectionProps> = ({
+const PortfolioSection = ({
   isEditing,
   portfolios,
   onPortfolioChange,
-}) => {
+}: any) => {
   const socialLinks = [
     PortfolioCategory.GITHUB,
     PortfolioCategory.LINKEDIN,
@@ -31,17 +31,17 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   ]
 
   const handlePortfolioChange = (category: PortfolioCategory, link: string) => {
-    const updatedPortfolios = portfolios.map((p) =>
+    const updatedPortfolios = portfolios.map((p: any) =>
       p.category === category ? { ...p, link } : p,
     )
-    if (!updatedPortfolios.some((p) => p.category === category)) {
+    if (!updatedPortfolios.some((p: any) => p.category === category)) {
       updatedPortfolios.push({ category, link })
     }
     onPortfolioChange(updatedPortfolios)
   }
 
   const getPortfolioLink = (category: PortfolioCategory) => {
-    return portfolios.find((p) => p.category === category)?.link || ''
+    return portfolios.find((p: any) => p.category === category)?.link || ''
   }
 
   const getCategoryIcon = (category: PortfolioCategory) => {
@@ -108,7 +108,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
     )
   }
 
-  const activePortfolios = portfolios.filter((p) => p.link)
+  const activePortfolios = portfolios.filter((p: any) => p.link)
 
   if (activePortfolios.length === 0) {
     return (
@@ -119,7 +119,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-2 gap-3">
-        {activePortfolios.map((portfolio) => (
+        {activePortfolios.map((portfolio: any) => (
           <a
             key={portfolio.category}
             href={portfolio.link}

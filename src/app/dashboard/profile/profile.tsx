@@ -195,7 +195,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                 <PortfolioSection
                   isEditing={isEditing}
                   portfolios={formData.portfolios}
-                  onPortfolioChange={(newPortfolios) =>
+                  onPortfolioChange={(newPortfolios: any) =>
                     setFormData((prev) => ({
                       ...prev,
                       portfolios: newPortfolios,
@@ -252,7 +252,7 @@ const ProfileClient = (props: ProfileClientProps) => {
                 <PortfolioSection
                   isEditing={isEditing}
                   portfolios={formData.portfolios}
-                  onPortfolioChange={(newPortfolios) =>
+                  onPortfolioChange={(newPortfolios: any) =>
                     setFormData((prev) => ({
                       ...prev,
                       portfolios: newPortfolios,
