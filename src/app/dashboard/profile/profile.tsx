@@ -1,11 +1,13 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import type { UserStats } from '../../actions/domains'
 import { titleCase } from '@/lib/utils'
 import { updateProfile } from '@/app/actions/profile'
 import { Gender, PortfolioCategory } from '@prisma/client'
 import { Card } from '@/components/ui/card'
+import type { AttemptedDomain } from '@prisma/client'
+import { getAttemptedDomains } from '@/app/actions/domains'
 
 interface ProfileClientProps {
   user: UserStats
@@ -20,6 +22,8 @@ const ProfileClient = (props: ProfileClientProps) => {
     year: 'numeric',
   })
 
+  const [selectedDomains, setSelectedDomains] = useState<AttemptedDomain[]>([])
+  const [loading, setLoading] = useState(true)
   const [isEditing, setIsEditing] = useState(false)
   const [plink, setPlink] = useState('')
   const [formData, setFormData] = useState(() => ({
@@ -57,21 +61,31 @@ const ProfileClient = (props: ProfileClientProps) => {
     return 'they/them'
   }
 
+  useEffect(() => {
+    async function fetchDomains() {
+      setLoading(true)
+      const attmptedDomains = await getAttemptedDomains()
+      setSelectedDomains(attmptedDomains?.data || [])
+      setLoading(false)
+    }
+    fetchDomains()
+  }, [])
+
+  const getDomainStatus = (domainName: string): boolean => {
+    const domainAttempt = selectedDomains.find(
+      (domain) => domain.domain === domainName,
+    )
+
+    if (domainAttempt?.submitted) return true
+    return false
+  }
+
   return (
     <form onSubmit={handleSubmit} className="w-full h-screen">
       <div className="w-[100%] md:w-[88%] mx-auto mt-[1em] md:mt-[2em]">
         <div className="grid grid-cols-1 md:grid-cols-10 gap-8">
           {/* Left panel */}
           <div className="col-span-1 md:col-span-3 flex flex-col items-top md:items-center">
-            {/* <div className="w-[60px] md:w-[140px] h-[60px] md:h-fit mx-4 mb-4 hidden md:flex items-center justify-center rounded-2xl overflow-hidden">
-              <Image
-                src={props.image.length > 0 ? props.image : '/profile.webp'}
-                alt="Raju Rastogi"
-                width={200}
-                height={200}
-                className="rounded-full"
-              />
-            </div> */}
             {isEditing ? (
               <div className="flex flex-col gap-2 mx-4">
                 {/* Enter display name here */}
@@ -224,12 +238,36 @@ const ProfileClient = (props: ProfileClientProps) => {
                 </h2>
                 <div className="flex flex-wrap justify-left items-left mobile:w-full gap-2">
                   <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2 text-xs hover:scale-105">
-                    🦄 signed-up!
+                    🦄 signed-up
                   </div>
 
                   {onboardingCompleted && (
                     <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2 text-xs hover:scale-105">
-                      😽 profile ready!
+                      😽 profile ready
+                    </div>
+                  )}
+
+                  {getDomainStatus('TECH') && (
+                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2 text-xs hover:scale-105">
+                      📱developer
+                    </div>
+                  )}
+
+                  {getDomainStatus('MANAGEMENT') && (
+                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2 text-xs hover:scale-105">
+                      💸 manager
+                    </div>
+                  )}
+
+                  {getDomainStatus('DESIGN') && (
+                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2 text-xs hover:scale-105">
+                      🎨 designer
+                    </div>
+                  )}
+
+                  {getDomainStatus('VIDEO') && (
+                    <div className="rounded-full bg-[#18181B] w-fit h-fit p-2 border-[#30363D] border-2 text-xs hover:scale-105">
+                      📹 videographer
                     </div>
                   )}
                 </div>
