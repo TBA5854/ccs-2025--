@@ -5,7 +5,7 @@ import { prisma } from '@/lib/db'
 import type { Gender, PortfolioCategory } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
 
-interface UpdateProfileData {
+export interface UpdateProfileData {
   name: string
   aboutUs?: string
   gender?: Gender
