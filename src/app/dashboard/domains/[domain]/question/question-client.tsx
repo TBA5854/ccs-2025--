@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import QuestionPanel from '@/components/questions-page/question-panel'
 import AnswerPanel from '@/components/questions-page/answer-panel'
-import type { Question } from '@prisma/client'
+import type { AttempedQuestion, Question } from '@prisma/client'
 import { submitQuestion } from '@/app/actions/questions'
 import { redirect } from 'next/navigation'
 import Image from 'next/image'
@@ -11,9 +11,7 @@ import Link from 'next/link'
 
 import next_q_icon from '@/../public/icons/next_q.svg'
 import prev_q_icon from '@/../public/icons/prev_q.svg'
-import reset_a_icon from '@/../public/icons/reset_a.svg'
 import home_icon from '@/../public/icons/home.svg'
-import next from 'next'
 
 export default function QuestionsPage({
   questions,
@@ -62,7 +60,7 @@ export default function QuestionsPage({
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1)
     }
-
+    // console.log('currentIndex:', currentIndex,"total questions:",questions.length)
     if (currentIndex === questions.length - 1) {
       await Promise.all(submitAttempts)
       // TODO: @padhai-head
@@ -113,7 +111,7 @@ export default function QuestionsPage({
                 width={32}
                 height={32}
                 alt="domains"
-                className="relative w-6 h-6 rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                // className="relative w-6 h-6 rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
               />
             </div>
           </Link>
@@ -164,7 +162,12 @@ export default function QuestionsPage({
 
             {/* On tabs & desktop */}
             <div className={`hidden md:flex`}>
-              <QuestionPanel question={questions[currentIndex].question} />
+              <QuestionPanel
+                question={questions[currentIndex].question}
+                // Icon={() => (
+                // <Image src="/md.svg" alt="Markdown Icon" height={128} width={128} />
+                // )}
+              />
             </div>
           </div>
 
@@ -197,38 +200,70 @@ export default function QuestionsPage({
 
       {/* Navigation buttons with dynamic positioning */}
       <div className="fixed bottom-0 border-t border-gray-800 bg-[#09090b] z-[100] py-2 mt-auto w-full px-6">
-        <div className="flex justify-between md:justify-end items-center px-2 md:px-0 gap-2 md:gap-4">
-          <button
-            className="
-              inline-block w-1/2 md:w-1/6 px-4 py-2 
+        <div className="flex justify-between">
+          <div className="flex items-center justify-center w-12 h-12 relative">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 60 60">
+              <circle
+                className="text-gray-300"
+                strokeWidth="5"
+                stroke="currentColor"
+                fill="transparent"
+                r="22"
+                cx="30"
+                cy="30"
+              />
+              <circle
+                className="text-blue-600"
+                strokeWidth="5"
+                strokeDasharray={`${((currentIndex + 1) / (questions.length - 1)) * 100}, 100`}
+                strokeLinecap="round"
+                stroke="currentColor"
+                fill="transparent"
+                r="22"
+                cx="30"
+                cy="30"
+                transform="rotate(-90 30 30)"
+              />
+            </svg>
+            <span className="absolute text-sm text-white">
+              {currentIndex + 1}/{questions.length}
+            </span>
+          </div>
+          <div className="flex justify-between md:justify-end w-fit items-center px-2 md:px-0 gap-2 md:gap-4">
+            <button
+              className="
+              inline-block w-1/2 md:w-fit px-4 py-2 
               text-[14px] uppercase tracking-widest cursor-pointer 
               text-white/80 bg-white/10 border border-white/10 
               rounded-[15px] backdrop-blur-[30px] 
               disabled:cursor-not-allowed disabled:opacity-50
             "
-            onClick={handlePrevious}
-            disabled={currentIndex === 0}
-            type="button"
-          >
-            &lt;&lt; Prev
-          </button>
+              onClick={handlePrevious}
+              disabled={currentIndex === 0}
+              type="button"
+            >
+              &lt;&lt; Prev
+            </button>
 
-          <button
-            className="
-              inline-block w-1/2 md:w-1/6 px-4 py-2 
+            <button
+              className="
+              inline-block w-1/2 md:w-fit px-4 py-2 
               text-[14px] uppercase tracking-widest cursor-pointer 
               text-white/80 bg-white/10 border border-white/10 
               rounded-[15px] backdrop-blur-[30px] 
               disabled:cursor-not-allowed disabled:opacity-50
             "
-            onClick={handleNext}
-            disabled={
-              currentIndex === questions.length - 1 && !answers[currentIndex]
-            }
-            type="button"
-          >
-            {currentIndex === questions.length - 1 ? 'Finish Quiz' : 'Next >>'}
-          </button>
+              onClick={handleNext}
+              disabled={
+                currentIndex === questions.length - 1 && !answers[currentIndex]
+              }
+              type="button"
+            >
+              {currentIndex === questions.length - 1
+                ? 'Finish Quiz'
+                : 'Next >>'}
+            </button>
+          </div>
         </div>
       </div>
     </main>
